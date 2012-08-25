@@ -58,7 +58,7 @@
                     <ul class="recent-list">
                     	
                         <li>
-                            <abbr class="published" title="<?php the_time('F j, Y - g:i a'); ?>">
+                            <abbr title="<?php the_time('F j, Y - g:i a'); ?>">
                                 <?php the_time('n/j'); ?>
                             </abbr>
                             <a href="<?php the_permalink() ?>" title="<?php the_title(); ?>" rel="bookmark">
@@ -69,7 +69,7 @@
 			<?php } elseif ($i==5||$i==7||$i==8) { ?>
 
                         <li>
-                            <abbr class="published" title="<?php the_time('F j, Y - g:i a'); ?>">
+                            <abbr title="<?php the_time('F j, Y - g:i a'); ?>">
                                 <?php the_time('n/j'); ?>
                             </abbr>
                             <a href="<?php the_permalink() ?>" title="<?php the_title(); ?>" rel="bookmark">
@@ -80,7 +80,7 @@
 			<?php } elseif ($i==6) { ?>
 
                         <li>
-                            <abbr class="published" title="<?php the_time('F j, Y - g:i a'); ?>">
+                            <abbr title="<?php the_time('F j, Y - g:i a'); ?>">
                                 <?php the_time('n/j'); ?>
                             </abbr>
                             <a href="<?php the_permalink() ?>" title="<?php the_title(); ?>" rel="bookmark">
@@ -93,7 +93,7 @@
   			<?php } elseif ($i==9) { ?>
             
                         <li>
-                        	<abbr class="published" title="<?php the_time('F j, Y - g:i a'); ?>">
+                        	<abbr title="<?php the_time('F j, Y - g:i a'); ?>">
                                 <?php the_time('n/j'); ?>
                             </abbr>
                             <a href="<?php the_permalink() ?>" title="<?php the_title(); ?>" rel="bookmark">
