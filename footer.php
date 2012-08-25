@@ -31,12 +31,9 @@
 
 </div><!-- #page .hfeed .container -->
 
-	
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-	<script src="<?php echo bloginfo('template_url'); ?>/js/jquery.fitvids.js"></script>
-    <script src="<?php echo bloginfo('template_url'); ?>/js/jquery.animate-colors-min.js"></script>
-    <script src="<?php echo bloginfo('template_url'); ?>/js/scott.js"></script>
+	<script src="<?php echo bloginfo('template_url'); ?>/js/plugins.js"></script>
+    <script src="<?php echo bloginfo('template_url'); ?>/js/script.js"></script>
 
     <?php if (is_page_template('pg-instagram.php')) { ?>
 		<script src="<?php echo bloginfo('template_url'); ?>/js/jquery.instagram.js"></script>
@@ -72,48 +69,25 @@
                 }       
             }) 
         });
-        
         </script>
-
     <?php } ?>    
-    <script src="<?php echo bloginfo('template_url'); ?>/js/jquery.fittext.js"></script>
-    <script>
-		$("#blog-title").fitText(0.55);
-		var about = $('.about-title'),
-			aboutAbout = $('.about-title-about');
-		about.fitText(0.54);
-		aboutAbout.fitText(0.48);
-		$(".categories-title").fitText(0.34);
-		$(".category-archive").fitText(1.485);
-		$(".projects-title").fitText(0.566);
-		$('.category-web100').fitText(0.135)
-			.next().fitText(0.21) // Music
-			.next().fitText(0.12) // Art
-			.next().fitText(0.32) // Personal
-			.next().fitText(0.16); // Misc
-		$(".recent-title").fitText(0.34);	
-	</script>
 
-	<?php if (!is_user_logged_in() ) { ?>    
-    <script type="text/javascript">
-
-	  var _gaq = _gaq || [];
-	  _gaq.push(['_setAccount', 'UA-9215814-2']);
-	  _gaq.push(['_trackPageview']);
-	
-	  (function() {
-		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-	  })();
-	
-	</script>
+	<?php 
+    // Google analytics: only track visits
+    // from those who are not logged in
+    if (!is_user_logged_in() ) { ?>    
+        <script type="text/javascript">
+    	  var _gaq = _gaq || [];
+    	  _gaq.push(['_setAccount', 'UA-9215814-2']);
+    	  _gaq.push(['_trackPageview']);
+    	
+    	  (function() {
+    		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    	  })();
+    	</script>
     <?php } ?>
-    
-  <!--[if lt IE 7 ]>
-    <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
-    <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
-  <![endif]-->    
 
 <?php wp_footer(); ?>
 </body>

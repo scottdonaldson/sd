@@ -1,20 +1,39 @@
 // Imports
 @import 'compass/css3';
+@import 'compass/utilities';
 
-/* http://meyerweb.com/eric/tools/css/reset/ v2.0 | 20110126 License: none (public domain) */
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; } /* HTML5 display-role reset for older browsers */ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; } body { line-height: 1; } ol, ul { list-style: none; } blockquote, q { quotes: none; } blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; } table { border-collapse: collapse; border-spacing: 0; } em, i { font-style:italic; } strong, b {font-weight: bold; } 
-pre, code, kbd, samp { font-family: monospace, serif; _font-family: 'courier new', monospace; font-size: 0.8em; line-height:1.15; background:#333; color: #ccc; margin-bottom:1.5em; padding:20px; overflow-x: auto; }
-.visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+// Mixins
+@mixin tight {
+	margin: 0;
+	padding: 0;
+}
 
-@include font-face(
-	'League Gothic',
-	font-files(
-		'../fonts/League_Gothic-webfont.woff',woff,
-		'../fonts/League_Gothic-webfont.ttf',ttf,				
-		'../fonts/League_Gothic-webfont.svg',svg),
-	'../fonts/League_Gothic-webfont.eot'
-);
+// Colors
+$grey: #565656;
+$med-grey: #999;
+$lt-grey: #D1D1D1;
+$turquoise: #D3E2E2;
 
+// Fonts
+@font-face {
+    font-family: 'League Gothic';
+    src: url('../fonts/League_Gothic-webfont.eot');
+    src: url('../fonts/League_Gothic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/League_Gothic-webfont.woff') format('woff'),
+         url('../fonts/League_Gothic-webfont.ttf') format('truetype'),
+         url('../fonts/League_Gothic-webfont.svg#LeagueGothicRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@mixin league {
+	font-family: 'League Gothic', Impact, sans-serif;
+	text-transform: uppercase;
+}
+.league, h1, h2, h3, h4, h5, h6 {
+	font-family: 'League Gothic', Impact, sans-serif;
+	line-height: 1;
+	text-transform: uppercase;	
+}
 @font-face {
     font-family: 'Lato';
     src: url('../fonts/Lato-BoldItalic-webfont.eot');
@@ -55,16 +74,54 @@ pre, code, kbd, samp { font-family: monospace, serif; _font-family: 'courier new
     font-weight: normal;
     font-style: normal;
 }
-#wpstats { display: none;}
+@mixin lato {
+	font-family: 'Lato', Helvetica, Arial, sans-serif;
+}
+.lato {
+	font-family: 'Lato', Helvetica, Arial, sans-serif;
+}
 
-// Colors
-$med-grey: #565656;
-$lt-grey: #D1D1D1;
-$turquoise: #D3E2E2;
+// General styles
+* {
+	@include box-sizing(border-box);
+	@include transition-duration(0.2s);
+	@include transition-timing-function(ease-in-out);
+}
+@mixin no-transition {
+	@include transition-duration(0s);
+}
+
+	// ----- No transition on these elements
+
+		.preload *,
+		#wpadminbar,
+		#wpadminbar * {
+			@include no-transition;
+		}
+
+	// -------------------------------------
+a,
+a:visited {
+	color: $med-grey;
+	text-decoration: none;
+}
+
+a:hover,
+a:active {
+	color: $grey;
+}
+@for $i from 2 through 6 {
+	h#{$i} { 
+		font-size: 52px - 6*$i; 
+	}
+}
+
+::selection { background: $grey; color:#fff; text-shadow: none; }
+::-moz-selection { background: $grey; color:#fff; text-shadow: none; }
 
 body {
-	color: $med-grey;
-	font-family:'Lato',Helvetica,Arial,sans-serif;
+	color: $grey;
+	@include lato;
 	-ms-word-break: break-all;
     word-break: break-all;
     word-break: break-word;
@@ -73,28 +130,24 @@ body {
         hyphens: auto;
 }
 
-::selection { background:#565656; color:#fff; text-shadow:none; }
-::-moz-selection { background:#565656; color:#fff; text-shadow:none; }
-
-.league {
-	font-family:'League Gothic','Impact','sans-serif';
-	text-transform:uppercase;
+pre, 
+code, 
+kbd, 
+samp { 
+	background: #333; 
+	color: #ccc; 
+	overflow-x: auto; 
+	padding: 20px;  
 }
 
-a:link,
-a:visited {
-	color:#999;
-	text-decoration:none;
-}
-
-a:hover,
-a:active {
-	color:#565656;
+blockquote {
+	border-left: 10px solid $turquoise;
+	padding-left: 40px;
 }
 
 .entry-content a:hover,
 .entry-content a:active {
-	background:#d3e2e2;
+	background: $turquoise;
 }
 
 .entry-content a:hover img {
@@ -103,295 +156,250 @@ a:active {
 
 .grey,
 .page-template-about-php h2:hover .grey {
-	color:#D3E2E2;
+	color: $turquoise;
 }
 
-.alignright,img.alignright{
-	float:right;
-	margin:0 0 0 1em;
+// ----- STRUCTURE
+#page {
+	margin: 0 auto;
+	max-width: 1140px;
+	padding: 0 20px;
+}
+.primary {
+	float: left;
+	margin-right: 3%;
+	width: 59%;
+}
+.secondary {
+	float: left;
+	margin-right: 3%;
+	width: 16%;
+}
+.tertiary {
+	float: left;
+	width: 19%;
 }
 
-.alignleft,img.alignleft{
-	float:left;
-	margin:0 1em 0 0;
-}
+// ----- HEADER
+header {
+	border-bottom: 10px solid $lt-grey;
 
-.aligncenter,img.aligncenter{
-	display:block;
-	margin:0em auto 1em;
-	text-align:center;
-}
-
-small {
-	font-size:80%;
-}
-
-h1,
-p#blog-title {
-	font-size:2.5em;
-	margin-bottom:0;
-}
-
-h2 {
-	font-size:1.8em;
-}
-
-p {
-	margin-bottom:1.2em;
-}
-
-blockquote {
-	border-left:0.8em solid #d3e2e2;
-	padding-left:2em;
-}
-
-.entry-content ul {
-	list-style-type:disc;
-}
-
-.entry-content ul,
-.entry-content ol {
-	margin-bottom:0.8em;
-}
-
-.entry-content ul li,
-.entry-content ol li {
-	margin:0 0 0.4em 2em;
-}
-
-ol {
-	list-style-type:decimal;
-}
-
-
-/* ------------ Header -------------- */
-
-header.row {
-	border-bottom:0.8em solid #d1d1d1;
-}
-
-h1, h2, h3,
-p#blog-title {
-	font-family:'League Gothic','Impact','sans-serif';
-	display:inline-block;
-	text-transform:uppercase;
-	width:100%;
-}
-
-h1,
-p#blog-title {
-	margin-top:40px;
-	text-align:center;
-}
-
-h1 a:link, h1 a:visited,
-h2 a:link, h2 a:visited {
-	color:#565656;
-	text-decoration:none;
-}
-
-h1 a:active, h1 a:hover,
-h2 a:active, h2 a:hover {
-	color:#999;
-	text-decoration:none;
-	background:transparent none;
-}
-
-h1 a:hover .grey,
-h2:hover .grey {
-	color:#eee;
-}
-
-.about-title {
-	font-size:1.6em;
-	white-space:nowrap;
-}
-
-h3 {
-	font-size:1.6em;
-	margin-bottom:1em;
-}
-
-#search {
-	margin-top:45px;
-	position:relative;
-	left:-8px;
-}
-
-.searchinput {
-    background: url("images/search.png") no-repeat scroll 2px 2px #FFFFFF;
-    border: 1px solid #999999;
-    color: #999999;
-    font-weight: bold;
-    margin: 0;
-    padding: 4px 0 4px 24px;
-    width: 85%;
-	border-radius:2px;
-	-moz-border-radius:2px;
-	-webkit-border-radius:2px;
-}
-
-.searchbutton {
-	display:none;
-}
-
-#photos {
-	margin-top:45px;
-
-	a {
-		position:relative;
-		left:-86%;
-		margin-right:-86%;
+	h1, h2, h3 {
+		white-space: nowrap;
 	}
 
-	img {
-		max-width:186%;
-	}
-
-	img:hover {
-		opacity:0.5;
-	}
-}
-
-/* ------- Index ------- */
-
-#main {
-	margin:4em auto 1.5em;
-	padding-bottom:1.5em;
-	border-bottom:0.8em solid #D1D1D1;
-}
-
-article.post,
-article.page {
-	margin-bottom:1.5em;
-}
-
-.featured-image {
-	width:100%;
-	overflow:hidden;
-	margin-bottom:1.5em;
-}
-
-.featured-image-square {
-    float: left;
-    margin-bottom: 20px;
-    margin-right: 4.4%;
-    width: 47.8%;
-}
-
-.entry-title {
-	font-size:2.7em;
-	display:inline;
-}
-
-.art-content {
-	position:relative;
-	top:0;
-	height:0;
-
-	.entry-title {
-		background:#eee;
-	    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.65);
-	    margin: 0.6em 0 0 5%;
-	    padding: 0.18em 0.18em 0;
-	    width: auto;
-		display:inline-block;
-	}
-
-	.entry-title a:link,
-	.entry-title a:hover {
-		color:#333;
-	}
-
-	.entry-title a:active,
-	.entry-title a:hover {
-		color:#666;
-	}
-
-	abbr {
-		background:#eee;
-	    background:none repeat scroll 0 0 rgba(255, 255, 255, 0.65);
-		margin-left:5%;
-		padding:0 0.18em 0.18em;
-	}
-
-	.entry-content {
-		display:none;
-	}
-}
-
-.entry-date {
-    font-size: 0.7em;
-    text-transform: uppercase;
-	margin-bottom:2.4em;
-	position:relative;
-	top:0.18em;
-}
-
-.entry-content {
-	margin-bottom:1.5em;
-	line-height:130%;
-}
-
-.read-more {
-	font-family:'League Gothic',Impact,sans-serif;
-	text-align:right;
-	width:95%;
-	padding-right:5%;
-	text-transform:uppercase;
-	background:#d3e2e2;
-	line-height:1.8em;
-	font-size:1.2em;
-	clear:both;
-	letter-spacing:0.05em;
-
-	a:link,
+	a,
 	a:visited {
-		color:#999;
-		text-decoration:none;
-		position:relative;
-		top:2px;
-	}
+		color: $grey;
 
-	a:hover,
-	a:active {
-		color:#565656;
-		text-decoration:none;
-	}
-}
-
-.recent-list {
-	abbr {
-	    background: none repeat scroll 0 0 #D1D1D1;
-	    color: #FFFFFF;
-	    display: inline-block;
-	    font-family: 'League Gothic',impact,sans-serif;
-	    font-size: 1.2em;
-	    padding: 0.12em;
-	    text-align: center;
-		margin-right:0.4em;
-	    width: 2em;
-		float:left;
-		clear:left;
-	}
-
-	li {
-		min-height:3em;
-	}
-
-	a:link,
-	a:visited {
-		display:block;
-		float:left;
-		max-width:80%;
-		position:relative;
-		top:0.12em;
-		line-height:120%;
+		.grey {
+			color: $turquoise;
+		}
 	}
 
 	a:active,
 	a:hover {
-		background:#d3e2e2;
+		color: $med-grey;
+
+		.grey {
+			color: #eee;
+		}
+	}
+}
+
+#blog-title {
+	float: left;
+	width: 60%;
+
+	h1, h3 {
+		margin: 20px 0 0 0;
+	}
+}
+
+#search {
+	float: left;
+	margin-top: 32px;
+	width: 30%;
+
+	input[type="text"] {
+	    background: url("../images/search.png") no-repeat scroll 2px 2px #fff;
+	    border: 1px solid $med-grey;
+	    @include border-radius(2px);
+	    color: $med-grey;
+	    @include lato;
+	    font-size: 14px;
+	    font-weight: bold;
+	    padding: 4px 0 4px 24px;
+	    width: 85%;
+	}
+
+	.searchbutton {
+		display: none;
+	}
+
+	h2 {
+		margin: 18px 0 0 0;
+	}
+
+	.page-template-templatesabout-php & h2 {
+		margin: 12px 0 0 0;
+	}
+}
+
+#photos {
+	float: left;
+	margin-top: 32px;
+	width: 10%;
+
+	img {
+		float: right;
+		width: 81%;
+	}
+
+	img:hover {
+		@include opacity(0.5);
+	}
+}
+
+// ------- MAIN (general)
+#main {
+	border-bottom: 10px solid $lt-grey;	
+	margin: 40px 0 10px;
+
+	article {
+		margin-bottom: 20px;
+
+		.entry-title {
+			font-size: 40px;
+		}
+
+	}
+}
+
+// ------- HOME
+
+.home {
+	
+	.full {
+		position: relative;
+
+		img {
+			margin-bottom: 20px;
+			width: 100%;
+		}
+
+		.title-date {
+			background: #eee;
+		    background: rgba(255, 255, 255, 0.65);
+		    display: block;
+		    left: 0;
+		    margin: 20px 20px 0 20px;
+		    padding: 10px 10px 5px;
+		    position: absolute;
+		    top: 0;
+
+		    .entry-title {
+		    	margin: 0;
+		    }
+
+		    a,
+			a:visited {
+				color: #333;
+			}
+
+			a:active,
+			a:hover {
+				color: #666;
+			}
+		}
+
+		.entry-content {
+			display: none;
+		}
+	}
+
+	.square img {
+		float: left;
+	    margin-bottom: 20px;
+	    margin-right: 4.4%;
+	    width: 47.8%;
+	}
+
+	.entry-title {
+		margin-bottom: 0;
+
+		a,
+		a:visited {
+			color: $grey;
+		}
+
+		a:active,
+		a:hover {
+			color: $med-grey;
+		}
+	}
+
+	.entry-content {
+		margin-bottom: 20px;
+	}
+
+}
+
+.entry-date {
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.read-more {
+	background: $turquoise;
+	clear: both;
+	@include league;
+	font-size: 20px;
+	padding-right: 5%;
+	text-align: right;
+
+	a,
+	a:visited {
+		color: $med-grey;
+	}
+
+	a:hover,
+	a:active {
+		color: $grey;
+	}
+}
+
+.recent-list {
+	@include tight;
+	float: left;
+	width: 50%;
+
+	abbr {
+		border: 0 none;
+	    background: $lt-grey;
+	    color: #fff;
+	    float: left;
+		@include league;
+		font-size: 20px;
+	    padding: 3px 5px;
+	    text-align: center;
+	    width: 38px;
+	}
+
+	li {
+		@include clearfix;
+		list-style-type: none;
+		margin-bottom: 10px;
+	}
+
+	a,
+	a:visited {
+		float: left;
+		margin-left: -38px;
+		padding-left: 44px;
+		position: relative;
+		top: 5px;
+		width: 100%;
 	}
 }
 	
@@ -467,8 +475,7 @@ article.page {
 }
 
 .post-categories {
-	font-family:'League Gothic',Impact,sans-serif;
-	text-transform:uppercase;
+	@include league;
 	font-size:1.4em;
 	letter-spacing:0.06em;
 	position:relative;
@@ -478,19 +485,19 @@ article.page {
 		float:right;
 		margin-top:1em;
 	}
-}
 
-.post-categories a:link,
-.post-categories a:visited {
-	margin-left:0.5em;
-	margin-top:0.4em;
-	padding:0.2em 0.4em;
-	background:#d3e2e2;
-}
+	a:link,
+	a:visited {
+		margin-left:0.5em;
+		margin-top:0.4em;
+		padding:0.2em 0.4em;
+		background:#d3e2e2;
+	}
 
-.post-categories a:hover,
-.post-categories a:active {
-	background:#fff;
+	a:hover,
+	a:active {
+		background:#fff;
+	}
 }
 
 .single .entry-content {
@@ -499,26 +506,22 @@ article.page {
 
 .previous, .next {
 	background: none repeat scroll 0 0 #D3E2E2;
-    color: #999999;
+    color: $med-grey;
     font-size: 85%;
     margin-bottom: 1em;
     padding: 0.5em 0;
-}
 
-.previous a:link,
-.previous a:visited,
-.next a:link,
-.next a:visited {
-	color:#999;
-	padding:0 5%;
-	display:block;
-}
+    a:link,
+	a:visited {
+		color:$med-grey;
+		padding:0 5%;
+		display:block;
+	}
 
-.previous a:hover,
-.previous a:active,
-.next a:hover,
-.next a:active {
-	color:#565656;
+	a:hover,
+	a:active {
+		color:#565656;
+	}
 }
 
 .next {
@@ -548,50 +551,54 @@ article.page {
 
 .sidebar {
 	list-style-type:none;
+
+	h3 {
+		color:#d1e2e2;
+		display:inline-block;
+		width:100%;
+		margin-bottom:20px;
+	}
 }
 
-.sidebar h3 {
-	color:#d1e2e2;
-	display:inline-block;
-	width:100%;
-	margin-bottom:20px;
+#categories-sidebar {
+	ul li {
+		width:100%;
+		margin-bottom:10px;
+		background:#d1d1d1;
+		text-align:center;
+		line-height:90%;
+	}
+
+	a:link,
+	a:visited {
+		color:#565656;
+		text-decoration:none;
+		position:relative;
+		top:0.04em;
+	}
+
+	a:hover,
+	a:active {
+		color:$med-grey;
+		text-decoration:none;
+	}
 }
 
-#categories-sidebar ul li {
-	width:100%;
-	margin-bottom:10px;
-	background:#d1d1d1;
-	text-align:center;
-	line-height:90%;
-}
+#categories-sidebar-mobile {
+	ul li {
+		background:#d1d1d1;
+		text-align:center;
+		max-width:50%;
+		margin-bottom:0.8em;
+	}
 
-#categories-sidebar-mobile ul li {
-	background:#d1d1d1;
-	text-align:center;
-	max-width:50%;
-	margin-bottom:0.8em;
-}
-
-#categories-sidebar a:link,
-#categories-sidebar a:visited {
-	color:#565656;
-	text-decoration:none;
-	position:relative;
-	top:0.04em;
-}
-
-#categories-sidebar-mobile a:link,
-#categories-sidebar-mobile a:visited {
-	color:#565656;
-	text-decoration:none;
-	font-size:1.7em;
-}
-
-#categories-sidebar a:hover,
-#categories-sidebar a:active {
-	color:#999;
-	text-decoration:none;
-}
+	a:link,
+	a:visited {
+		color:#565656;
+		text-decoration:none;
+		font-size:1.7em;
+	}
+} 
 
 .category-music100 {
 	padding:2px 0;
@@ -605,65 +612,69 @@ article.page {
 	padding-bottom:2px;
 }
 
-#projects-sidebar h4 {
-	display:block;
-	margin-bottom:0;
-	background:#565656;
-	padding:0.2em 5%;
-	font-family:'League Gothic',Impact,sans-serif;
-	font-size:1.2em;
-	text-transform:uppercase;
-	letter-spacing:0.05em;
-}
+#projects-sidebar {
+	h4 {
+		display:block;
+		margin-bottom:0;
+		background:#565656;
+		padding:0.2em 5%;
+		font-family:'League Gothic',Impact,sans-serif;
+		font-size:1.2em;
+		text-transform:uppercase;
+		letter-spacing:0.05em;
+	}
 
-#projects-sidebar a,
-#projects-sidebar a:hover,
-#projects-sidebar a:active {
-	color:#fff;
-}
+	a,
+	a:hover,
+	a:active {
+		color:#fff;
+	}
 
-#projects-sidebar img {
-	width:100%;
-	padding:0;
-	height:auto;
-	margin-bottom:2px;
-	opacity:0.9;
-}
+	img {
+		width:100%;
+		padding:0;
+		height:auto;
+		margin-bottom:2px;
+		@include opacity(0.9);
+	}
 
-#projects-sidebar a:hover img,
-#projects-sidebar a:active img {
-	opacity:1;
-}
+	a:hover img,
+	a:active img {
+		@include opacity(1);
+	}
 
-#projects-sidebar p {
-	font-size:0.9em;
-	line-height:1.2;
+	p {
+		font-size:0.9em;
+		line-height:1.2;
+	}
 }
 
 .related_post li {
 	margin-bottom:0.6em;
 }
 
-#recent-sidebar a:hover,
-#recent-sidebar a:active {
-	background:#d3e2e2;
-}
+#recent-sidebar {
+	a:hover,
+	a:active {
+		background:#d3e2e2;
+	}
 
-#recent-sidebar ul {
-	margin-bottom:1.5em;
-}
+	ul {
+		margin-bottom:1.5em;
+	}
 
-#recent-sidebar li ul li {
-	margin-bottom:0.6em;
-}
+	li ul li {
+		margin-bottom:0.6em;
+	}
 
-#recent-sidebar .post-categories li {
-	float:none;
-}
+	.post-categories li {
+		float:none;
 
-#recent-sidebar .post-categories li a {
-	margin-left:0;
-	white-space:nowrap;
+		a {
+			margin-left:0;
+			white-space:nowrap;
+		}
+	}
 }
 
 
@@ -676,30 +687,32 @@ article.page {
 .archive-result {
 	background:#d3e2e2;
 	padding:0.05em 0.2em 0.02em;
-	color:#999;
+	color:$med-grey;
 }
 
 .wp-pagenavi {
 	font-size:2em;
-}
 
-.wp-pagenavi .current {
-	background:#d3e2e2;
-	padding:0.2em;
-	margin-right:0.3em;
-}
+	.current {
+		background:#d3e2e2;
+		padding:0.2em;
+		margin-right:0.3em;
+	}
 
-.wp-pagenavi .page,
-.wp-pagenavi .first,
-.wp-pagenavi .pages,
-.wp-pagenavi .extend {
-	margin-right:0.4em;
+	.page,
+	.first,
+	.pages,
+	.extend {
+		margin-right:0.4em;
+	}
 }
 
 /* --------- 404 --------- */
 
-.error404 .entry-content .searchform {
-	display:inline;
+.error404 {
+	.entry-content .searchform {
+		display:inline;
+	}
 }
 
 .error404 .entry-content .searchinput {
@@ -729,7 +742,7 @@ span.box-large:hover {
 
 button#instagram {
 	background:#d3e2e2;
-	color:#999;
+	color:$med-grey;
 	padding:0.05em 0.2em 0.02em;
 	font-size:2em;
 	border:0 none;
@@ -810,28 +823,28 @@ footer.row {
 .social {
 	float:right;
 	margin-right:0.8em;
-}
 
-.social a {
-	float:left;
-}
+	a {
+		float:left;
+	}
 
-.social img {
-    float: left;
-    margin-right: 0.4em;
-    padding: 0;
-    width: auto;
+	img {
+	    float: left;
+	    margin-right: 0.4em;
+	    padding: 0;
+	    width: auto;
+	}
 }
 
 .social a:link img,
 .social a:visited img {
-	opacity:0.5;
+	@include opacity(0.5);
 	background:#fff;
 }
 
 .social a:hover img,
 .social a:active img {
-	opacity:1;
+	@include opacity(1);
 }
 
 .copyright p {

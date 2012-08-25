@@ -13,64 +13,54 @@
     <link rel="stylesheet" href="<?php bloginfo('stylesheet_url') ?>" />
     <link rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/style.css" />
     <link rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/media.css" />
-    <?php if (is_single() && get_field('custom_stylesheet')) { ?>
-    	<link rel="stylesheet" href="<?php the_field('custom_stylesheet'); ?>" />
-    <?php } ?>
     
     <meta name="google-site-verification" content="hy4R03lS3g4OIIWVorLsLTuvOCEFCoDKUeQPI1fwSwg" />
-    
-    <!-- IE Fix for HTML5 Tags -->
-	<!--[if lt IE 9]>
-		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
     
 	<?php wp_head(); ?>    
     
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class('preload'); ?>>
 
 <div id="page" class="hfeed container">
 
-	<header class="row">
-		
-        <div class="seven columns">
+	<header class="clearfix">
+		<div id="blog-title">
 			<?php if (is_home() ) { ?>
-            	<h1 id="blog-title" class="league"><?php } else { ?>
-            	<p id="blog-title" class="league"><?php } ?>
+            	<h1 class="league"><?php } else { ?>
+            	<h3 class="league"><?php } ?>
         			<a href="<?php echo home_url(); ?>" title="Scott P. Donaldson" rel="home">scott<span class="grey">p</span>donaldson</a>
         	<?php if (is_home() ) { ?>
         		</h1><?php } else { ?>
-        		</p><?php } ?>
-        </div>
+        		</h3><?php } ?>
+        </div><!-- #blog-title -->
         
         <div class="show-on-phones columns">
         	<?php get_sidebar('cats-mobile'); ?>
         </div>
         
-        <div class="three columns offset-by-one hide-on-phones" id="search">
+        <div id="search">
         	<?php get_search_form(); ?>
             
-            <?php if (!is_page('about')) { ?>
-                <h2 class="about-title hide-on-phones">
-                    <a href="<?php echo home_url(); ?>/about" title="About"><span class="grey">what</span>
-                    about
-                    <span class="grey">scott</span></a>
-                </h2>
-            
-            <?php } else { ?>    
-                
-                <h2 class="about-title-about">
+            <h2 class="about-title league">
+                <?php 
+                // Show link 'What about Scott' if not on About page,
+                // 'All about Scott' if on About page
+                if (!is_page('about')) { ?>
+                    <a href="<?php echo home_url(); ?>/about/" title="About">
+                        <span class="grey">what</span>
+                        about
+                        <span class="grey">scott</span>
+                    </a>
+                <?php } else { ?>           
                     <span class="grey">all</span>
                     about
                     <span class="grey">scott</span>
-                </h2>
-                
-            <?php } ?>
-                   
+                <?php } ?>
+            </h2>       
         </div>
         
-        <div id="photos" class="one columns hide-on-phones">
+        <div id="photos">
 	    	<a href="<?php echo home_url(); ?>/photos" title="Instagram Feed | Scott Donaldson">
             	<img src="<?php echo bloginfo('template_url'); ?>/images/instagram.jpg" />
             </a>
@@ -78,4 +68,4 @@
         
 	</header>   
     
-	<div id="main" class="row">
+	<div id="main" class="clearfix">

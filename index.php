@@ -1,110 +1,115 @@
 <?php get_header(); ?>
 
-	<div class="seven columns">
+	<div class="primary">
     
 		<?php if ( have_posts() ) : while ( have_posts() ) : 
 		$i;
 		the_post(); 
 		$i++; 
-		
-			if ($i<4) { ?>
-
-				<article <?php post_class('row'); ?> >
-                
-                	<?php $img_size = get_field('feat_image_size');
+    		if ($i<4) { ?>
+                <article <?php post_class(); ?>>
+                    <?php $img_size = get_field('feat_image_size');
 					
 					// Full-size featured images
 					if ($img_size == 'Full') { ?>
-                    	<div class="featured-image">
-							<?php the_post_thumbnail('art'); ?> 
-                        </div> 
-                                
-                        <div class="art-content"><!-- Important: Closes in separate PHP if statement -->
+                    	<div class="full">
+							<?php $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID),'art'); ?>
+                            <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+                                <img src="<?php echo $image[0]; ?>" alt="<?php the_title(); ?>" />
+                            </a>
 							
-					<?php // Half-size featured images
+					<?php 
+                    // Half-size featured images
 					} elseif ($img_size == 'Half') { ?>
-                    	<div class="featured-image-square show-on-desktops">
-							<?php the_post_thumbnail('square'); ?> 
-                        </div>
+                    	<div class="square">
+							<?php $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID),'square'); ?>
+                            <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+                                <img src="<?php echo $image[0]; ?>" alt="<?php the_title(); ?>" />
+                            </a>
                     <?php } ?>
                                 
-					<h2 class="entry-title">
-                    	<a href="<?php the_permalink() ?>" title="<?php the_title(); ?>" rel="bookmark"><?php the_title() ?></a>
-                    </h2>
+        					<div class="title-date">
+                                <h2 class="entry-title">
+                                	<a href="<?php the_permalink() ?>" title="<?php the_title(); ?>" rel="bookmark">
+                                        <?php the_title(); ?>
+                                    </a>
+                                </h2>
                     
-                    <div class="entry-date">
-                    	<abbr class="published" title="<?php the_time('F j, Y - g:i a'); ?>"><?php the_time('F j, Y - g:i a'); ?></abbr>
-                    </div> 
+                            	<abbr class="entry-date" title="<?php the_time('F j, Y - g:i a'); ?>">
+                                    <?php the_time('F j, Y - g:i a'); ?>
+                                </abbr>
+                            </div><!-- .title-date -->
                     
-                    <?php // Similar to above, but for mobile
-					if ($img_size == 'Half' ) { ?>
-                    	<div class="featured-image-square hide-on-desktops">
-							<?php the_post_thumbnail('square'); ?> </div>
-						<?php } ?>    
-                    
-					<div class="entry-content">
-						<?php the_excerpt(); ?>
-					</div> 
-                    
-                    <?php // Close .art-content
-					if ($img_size == 'Full') { ?> 
-                    	</div><!-- .art-content -->
-					<?php } ?>                      
+        					<div class="entry-content">
+        						<?php the_excerpt(); ?>
+        					</div>                     
 				
-					<div class="read-more">
-                    	<?php edit_post_link('Edit / '); ?><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title(); ?>">More</a>
-                    </div>
+        					<div class="read-more">
+                            	<?php edit_post_link('Edit / '); ?><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title(); ?>">More</a>
+                            </div>
+                        </div><!-- .full or .square -->
                     
 				</article><!-- .post -->
                 
             <?php } elseif ($i==4) { ?>
 			
             	<h3>Recent Dispatches</h3>
-            
-            	<div class="row">
                 
-                    
-                    <ul class="recent-list six columns">
+                    <ul class="recent-list">
                     	
-                        	<li><abbr class="published" title="<?php the_time('F j, Y - g:i a'); ?>"><?php the_time('n/j'); ?></abbr>
-                            <a href="<?php the_permalink() ?>" title="<?php the_title(); ?>" rel="bookmark"><?php the_title() ?></a></li>
+                        <li>
+                            <abbr class="published" title="<?php the_time('F j, Y - g:i a'); ?>">
+                                <?php the_time('n/j'); ?>
+                            </abbr>
+                            <a href="<?php the_permalink() ?>" title="<?php the_title(); ?>" rel="bookmark">
+                                <?php the_title() ?>
+                            </a>
+                        </li>
     
 			<?php } elseif ($i==5||$i==7||$i==8) { ?>
 
-                        	<li><abbr class="published" title="<?php the_time('F j, Y - g:i a'); ?>"><?php the_time('n/j'); ?></abbr>
-                            <a href="<?php the_permalink() ?>" title="<?php the_title(); ?>" rel="bookmark"><?php the_title() ?></a></li>
+                        <li>
+                            <abbr class="published" title="<?php the_time('F j, Y - g:i a'); ?>">
+                                <?php the_time('n/j'); ?>
+                            </abbr>
+                            <a href="<?php the_permalink() ?>" title="<?php the_title(); ?>" rel="bookmark">
+                                <?php the_title() ?>
+                            </a>
+                        </li>
                             
 			<?php } elseif ($i==6) { ?>
 
-                        	<li><abbr class="published" title="<?php the_time('F j, Y - g:i a'); ?>"><?php the_time('n/j'); ?></abbr>
-                            <a href="<?php the_permalink() ?>" title="<?php the_title(); ?>" rel="bookmark"><?php the_title() ?></a></li>   
-                    </ul><!-- .six columns -->
-                    <ul class="recent-list six columns">  
+                        <li>
+                            <abbr class="published" title="<?php the_time('F j, Y - g:i a'); ?>">
+                                <?php the_time('n/j'); ?>
+                            </abbr>
+                            <a href="<?php the_permalink() ?>" title="<?php the_title(); ?>" rel="bookmark">
+                                <?php the_title() ?>
+                            </a>
+                        </li>   
+                    </ul><!-- .recent-list -->
+                    <ul class="recent-list">  
                                               
   			<?php } elseif ($i==9) { ?>
             
-                        	<abbr class="published" title="<?php the_time('F j, Y - g:i a'); ?>"><?php the_time('n/j'); ?></abbr>
-                            <a href="<?php the_permalink() ?>" title="<?php the_title(); ?>" rel="bookmark"><?php the_title() ?></a> 
-                    </ul><!-- .six columns -->                    
-  
-            <?php } ?>				
-            
-            	<?php endwhile; else: ?>
-            	<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
-                    
-            <?php endif; ?>
-            
-
-    </div>
-
-            
-	</div>                
+                        <li>
+                        	<abbr class="published" title="<?php the_time('F j, Y - g:i a'); ?>">
+                                <?php the_time('n/j'); ?>
+                            </abbr>
+                            <a href="<?php the_permalink() ?>" title="<?php the_title(); ?>" rel="bookmark">
+                                <?php the_title() ?>
+                            </a> 
+                        </li>
+                    </ul><!-- .recent-list -->                    
+            <?php } 
+        endwhile; endif; ?>    
+    </div><!-- .primary -->              
                 
-    <div class="two columns hide-on-phones">
+    <div class="secondary">
         <?php get_sidebar('cats'); ?>
     </div>
                 
-    <div class="three columns">
+    <div class="tertiary">
         <?php get_sidebar('projects'); ?>
     </div>        
 
