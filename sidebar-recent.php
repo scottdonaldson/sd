@@ -1,4 +1,4 @@
-<div class="sidebar hide-on-phones" id="recent-sidebar">
+<div class="sidebar recent">
 
 	<h3 class="recent-title">Related posts</h3>
     

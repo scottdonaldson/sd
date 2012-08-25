@@ -1,8 +1,6 @@
 <?php get_header(); ?>
 
-	<div class="seven columns">
-    
-    	<div id="loop">
+	<div class="primary">
     
     	<h2 class="category-archive">Category archive for <span class="archive-result"><?php single_cat_title(); ?></span></h2>
     

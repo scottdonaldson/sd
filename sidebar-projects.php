@@ -1,4 +1,4 @@
-<div class="sidebar hide-on-phones" id="projects-sidebar">
+<div class="sidebar projects">
 		<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('projects') ) : // begin primary sidebar widgets ?>
 		<h3 class="projects-title league">Other Projects</h3>	
         

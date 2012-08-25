@@ -1,20 +1,21 @@
 jQuery(document).ready(function($){
 
 	// FitText
-	$("#blog-title h1, #blog-title h3").fitText(0.55);
-	var about = $('.about-title'),
-		aboutAbout = $('.page-template-templatesabout-php .about-title');
-	about.fitText(0.63);
-	aboutAbout.fitText(0.56);
-	$(".categories-title").fitText(0.34);
-	$(".category-archive").fitText(1.485);
-	$(".projects-title").fitText(0.566);
-	$('.category-web100').fitText(0.135)
-		.next().fitText(0.21) // Music
-		.next().fitText(0.12) // Art
-		.next().fitText(0.32) // Personal
-		.next().fitText(0.16); // Misc
-	$(".recent-title").fitText(0.34);		
+	$.fn.fitted= function(val) {
+		$(this).fitText(val).addClass('fit');
+		// 'fit' class ensures that no transitions happen in CSS
+	}
+	$('#blog-title h1, #blog-title h3').fitted(0.55);
+	$('.about-title').fitted(0.63),
+	$('.page-template-templatesabout-php .about-title').fitted(0.56);
+	$('.home .categories-title').fitted(0.345);
+	$('.projects-title').fitted(0.56);
+	$('.home .sidebar .web').fitted(0.135) // Web
+	$('.home .sidebar .music').fitted(0.21) // Music
+	$('.home .sidebar .art').fitted(0.12) // Art
+	$('.home .sidebar .personal').fitted(0.32) // Personal
+	$('.home .sidebar .misc').fitted(0.16); // Misc
+	$('.recent-title').fitted(0.345);		
 
 	// FitVids
 	$('.post').fitVids();

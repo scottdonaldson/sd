@@ -95,7 +95,9 @@ $turquoise: #D3E2E2;
 
 		.preload *,
 		#wpadminbar,
-		#wpadminbar * {
+		#wpadminbar *,
+		textarea,
+		.fit {
 			@include no-transition;
 		}
 
@@ -372,8 +374,9 @@ header {
 }
 
 .recent-list {
-	@include tight;
 	float: left;
+	margin: 0 0 20px;
+	padding: 0;
 	width: 50%;
 
 	abbr {
@@ -467,6 +470,10 @@ header {
 			margin-right: 0;
 			text-align: right;
 		}
+
+		a:first-child {
+			text-align: left;
+		}
 	}
 }
 
@@ -528,7 +535,8 @@ header {
 // ------ Sidebars
 
 .sidebar {
-	list-style-type:none;
+	list-style-type: none;
+	margin-bottom: 20px;
 
 	h3 {
 		color: $turquoise;
@@ -536,35 +544,80 @@ header {
 	}
 
 	ul {
-		@include tight;
+		margin: 0 0 20px 0;
+		padding: 0;
 
 		li {
 			list-style-type: none;
 		}
 	}
-}
 
-#categories-sidebar {
-	ul li {
-		width:100%;
-		margin-bottom:10px;
-		background:#d1d1d1;
-		text-align:center;
-		line-height:90%;
+	&.categories {
+		li {
+			margin-bottom: 10px;
+			text-align:center;
+		}
+
+		a,
+		a:visited {
+			background: $lt-grey;
+			color: $grey;
+			display: block;
+			padding: 4px 0 0 0;
+			width: 100%;
+		}
+
+		a:hover,
+		a:active {
+			color: $med-grey;
+		}
 	}
 
-	a:link,
-	a:visited {
-		color:#565656;
-		text-decoration:none;
-		position:relative;
-		top:0.04em;
+	&.projects {
+		h4 {
+			display: block;
+			background: $grey;
+			margin: 0;
+			padding: 5px 10px;
+		}
+
+		a,
+		a:visited,
+		a:active,
+		a:hover {
+			color: #fff;
+		}
+
+		img {
+			@include opacity(0.8);
+			width:100%;
+		}
+
+		a:hover img,
+		a:active img {
+			@include opacity(1);
+		}
+
+		p {
+			font-size: 13px;
+		}
 	}
 
-	a:hover,
-	a:active {
-		color:$med-grey;
-		text-decoration:none;
+	&.recent {
+		li {
+			margin-bottom: 5px;
+		}
+
+		a,
+		a:visited {
+			display: block;
+			line-height: 1.2;
+		}
+
+		a:hover,
+		a:active {
+			background: $turquoise;
+		}
 	}
 }
 
@@ -581,83 +634,6 @@ header {
 		color:#565656;
 		text-decoration:none;
 		font-size:1.7em;
-	}
-} 
-
-.category-music100 {
-	padding:2px 0;
-}
-
-.category-personal100 {
-	padding:3px 0 5px;
-}
-
-.category-misc100 {
-	padding-bottom:2px;
-}
-
-#projects-sidebar {
-	h4 {
-		display:block;
-		margin-bottom:0;
-		background:#565656;
-		padding:0.2em 5%;
-		font-family:'League Gothic',Impact,sans-serif;
-		font-size:1.2em;
-		text-transform:uppercase;
-		letter-spacing:0.05em;
-	}
-
-	a,
-	a:hover,
-	a:active {
-		color:#fff;
-	}
-
-	img {
-		width:100%;
-		padding:0;
-		height:auto;
-		margin-bottom:2px;
-		@include opacity(0.9);
-	}
-
-	a:hover img,
-	a:active img {
-		@include opacity(1);
-	}
-
-	p {
-		font-size:0.9em;
-		line-height:1.2;
-	}
-}
-
-.related_post li {
-	margin-bottom:0.6em;
-}
-
-#recent-sidebar {
-	a:hover,
-	a:active {
-		background:#d3e2e2;
-	}
-
-	ul {
-		margin-bottom:1.5em;
-	}
-
-	li ul li {
-		margin-bottom:0.6em;
-	}
-
-	.post-categories li {
-		float:none;
-
-		a {
-			margin-left:0;
-			white-space:nowrap;
-		}
 	}
 }
 
