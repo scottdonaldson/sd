@@ -1,8 +1,10 @@
+/* line 1, ../sass/admin-style.scss */
 #menu-posts-entry .wp-menu-image {
-	background: url('../images/notebook-pencil-icon.png') no-repeat 6px -17px !important;
+  background: url("../images/notebook-pencil-icon.png") no-repeat 6px -17px !important;
 }
 
-#menu-posts-entry:hover .wp-menu-image, 
+/* line 6, ../sass/admin-style.scss */
+#menu-posts-entry:hover .wp-menu-image,
 #menu-posts-entry.wp-has-current-submenu .wp-menu-image {
-	background-position: 6px 7px!important;
+  background-position: 6px 7px!important;
 }
