@@ -736,13 +736,16 @@ header {
 	}
 }
 
-#instagram {
+#instagram,
+button,
+input[type="submit"] {
 	background: $turquoise;
 	border: 0 none;
 	color: $med-grey;	
 	clear: both;	
 	cursor: pointer;
 	padding: 6px;
+	@include league;
 	font-size: 30px;
 
 	&:hover {

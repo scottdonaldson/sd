@@ -1,10 +1,8 @@
 <?php get_header(); ?>
 
-	<div class="seven columns">
+	<div class="primary">
     
-    	<div id="loop">
-    
-    	<h2 class="category-archive">Search results for <span class="archive-result"><?php the_search_query(); ?></span></h2>
+    	<h2>Search results for <span class="result"><?php the_search_query(); ?></span></h2>
     
 		<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 

@@ -773,54 +773,60 @@ header a:hover .grey {
   width: 35px;
 }
 
-/* line 739, ../sass/style.scss */
-#instagram {
+/* line 741, ../sass/style.scss */
+#instagram,
+button,
+input[type="submit"] {
   background: #d3e2e2;
   border: 0 none;
   color: #999999;
   clear: both;
   cursor: pointer;
   padding: 6px;
+  font-family: 'League Gothic', Impact, sans-serif;
+  text-transform: uppercase;
   font-size: 30px;
 }
-/* line 748, ../sass/style.scss */
-#instagram:hover {
+/* line 751, ../sass/style.scss */
+#instagram:hover,
+button:hover,
+input[type="submit"]:hover {
   color: #565656;
 }
 
-/* line 754, ../sass/style.scss */
+/* line 757, ../sass/style.scss */
 .small-activated .instagram-placeholder {
   float: left;
   margin: 0 2% 2% 0;
   width: 32% !important;
 }
-/* line 759, ../sass/style.scss */
+/* line 762, ../sass/style.scss */
 .small-activated .instagram-placeholder img {
   max-width: 100% !important;
   padding: 0;
 }
-/* line 764, ../sass/style.scss */
+/* line 767, ../sass/style.scss */
 .small-activated .instagram-placeholder:nth-child(3n+3) {
   margin-right: 0;
 }
-/* line 768, ../sass/style.scss */
+/* line 771, ../sass/style.scss */
 .small-activated p.wp-caption-text {
   display: none !important;
 }
 
-/* line 774, ../sass/style.scss */
+/* line 777, ../sass/style.scss */
 .large-activated .instagram-placeholder {
   margin-bottom: 20px;
   width: 100%;
 }
-/* line 779, ../sass/style.scss */
+/* line 782, ../sass/style.scss */
 .large-activated img {
   border-bottom: 8px solid #fff;
   padding-right: 0 !important;
   max-width: 100% !important;
   width: 100%;
 }
-/* line 786, ../sass/style.scss */
+/* line 789, ../sass/style.scss */
 .large-activated p.wp-caption-text {
   display: block;
   font-size: 18px;
@@ -831,60 +837,60 @@ header a:hover .grey {
 }
 
 /* ---------- Footer ------------- */
-/* line 798, ../sass/style.scss */
+/* line 801, ../sass/style.scss */
 footer {
   margin-bottom: 30px;
 }
-/* line 801, ../sass/style.scss */
+/* line 804, ../sass/style.scss */
 footer .credits {
   float: left;
   width: 50%;
 }
-/* line 806, ../sass/style.scss */
+/* line 809, ../sass/style.scss */
 footer .credits a:active,
 footer .credits a:hover {
   background: #d3e2e2;
 }
-/* line 811, ../sass/style.scss */
+/* line 814, ../sass/style.scss */
 footer .copyright {
   float: left;
   width: 50%;
 }
-/* line 815, ../sass/style.scss */
+/* line 818, ../sass/style.scss */
 footer .copyright .social {
   float: right;
   margin: 16px 12px 0 0;
 }
-/* line 819, ../sass/style.scss */
+/* line 822, ../sass/style.scss */
 footer .copyright .social a {
   float: left;
 }
-/* line 822, ../sass/style.scss */
+/* line 825, ../sass/style.scss */
 footer .copyright .social a img {
   background: #fff;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
   opacity: 0.5;
 }
-/* line 829, ../sass/style.scss */
+/* line 832, ../sass/style.scss */
 footer .copyright .social a:active img,
 footer .copyright .social a:hover img {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
 }
-/* line 833, ../sass/style.scss */
+/* line 836, ../sass/style.scss */
 footer .copyright .social img {
   float: left;
   margin-right: 0.4em;
   padding: 0;
   width: auto;
 }
-/* line 841, ../sass/style.scss */
+/* line 844, ../sass/style.scss */
 footer .copyright p {
   float: right;
   text-align: right;
 }
 
-/* line 850, ../sass/style.scss */
+/* line 853, ../sass/style.scss */
 .ie6 #blog-title {
   font-size: 40px !important;
 }
