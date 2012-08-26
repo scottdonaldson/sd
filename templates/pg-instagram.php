@@ -2,41 +2,37 @@
 /*
 Template Name: Instagram Feed
 */
-get_header(); ?>
+get_header(); the_post(); ?>
 
-	<div class="seven columns">
-    
-		<?php the_post(); ?>
+	<div class="primary">
 
-				<article <?php post_class('row'); ?>>
+        <article <?php post_class('row'); ?>>
                                 
-					<h2 class="entry-title" style="float:left;width:50%;">
-                    	<?php the_title() ?>
-                    </h2>
-                    <div class="alignright">
-                    	<span class="box-small"></span>
-                        <span class="box-medium"></span>
-                        <span class="box-large"></span>
-                    </div>
-                    
-					<div class="entry-content">
-						<?php the_content(); ?>
-					    <div class="instagram"></div>
-                        <button id="instagram" class="league">More</button>
-                    
-                    </div>   
-                    
+			<div class="clearfix">
+                <h2 class="entry-title alignleft">
+                	<?php the_title() ?>
+                </h2>
+                <div class="alignright">
+                    <span class="box small"></span>
+                    <span class="box medium"></span>
+                    <span class="box large"></span>
+                </div>
+            </div>
 
+			<div class="entry-content">
+				<?php the_content(); ?>
+				<div class="instagram"></div>
+                <button id="instagram" class="league">More</button>
                     
-				</article><!-- .post -->
-            
-	</div>                
+            </div>   
+        </article><!-- .post -->
+    </div>                
                 
-    <div class="two columns hide-on-phones">
+    <div class="secondary">
         <?php get_sidebar('cats'); ?>
     </div>
                 
-    <div class="three columns">
+    <div class="tertiary">
         <?php get_sidebar('projects'); ?>
     </div>        
 

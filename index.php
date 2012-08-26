@@ -47,7 +47,9 @@
         					<div class="read-more">
                             	<?php edit_post_link('Edit / '); ?><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title(); ?>">More</a>
                             </div>
+                    <?php if ($img_size == 'Full' || $img_size == 'Half') { ?>        
                         </div><!-- .full or .square -->
+                    <?php } ?>    
                     
 				</article><!-- .post -->
                 

@@ -1,12 +1,12 @@
 	</div><!-- #main -->
 
-	<footer class="row">
+	<footer class="clearfix">
 
-    	<div class="six columns credits">
+    	<div class="credits">
         	<p>Design + Code by <a href="http://www.parsleyandsprouts.com" target="_blank" title="Parsley &amp; Sprouts">Parsley &amp; Sprouts</a></p>
         </div>
     
-    	<div class="six columns copyright">
+    	<div class="copyright">
         	<p>&copy; 2008-<?php echo date('Y'); ?> by Scott P. Donaldson</p>
             <div class="social">
             	<a href="http://www.facebook.com/scottparkerdonaldson" target="_blank">
@@ -25,52 +25,14 @@
 	                <img src="<?php echo bloginfo('template_url'); ?>/images/email.png" />
     			</a>
             </div>
-        </div>
- 
+        </div> 
 	</footer>
 
 </div><!-- #page .hfeed .container -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<script src="<?php echo bloginfo('template_url'); ?>/js/plugins.js"></script>
-    <script src="<?php echo bloginfo('template_url'); ?>/js/script.js"></script>
-
-    <?php if (is_page_template('pg-instagram.php')) { ?>
-		<script src="<?php echo bloginfo('template_url'); ?>/js/jquery.instagram.js"></script>
-        <script>
-        
-        $(function(){
-            var insta_container = $(".instagram"),
-                insta_next_url;
-    
-            insta_container.instagram({
-                userId: '7769924', 
-                accessToken: '7769924.2d0dece.2746a5143c9a42359f616f0f9dbd91a5', 
-                show: 18, 
-                onComplete: function (photos, data) {
-                    insta_next_url = data.pagination.next_url
-                }
-            });
-    
-            $('button').on('click', function(){
-                var button = $(this), 
-                text = button.text();
-    
-                if (button.text() != 'Loading…'){
-                    button.text('Loading…');
-                    insta_container.instagram({
-                        next_url: insta_next_url,
-                        show: 18, 
-                        onComplete: function(photos, data) {
-                            insta_next_url = data.pagination.next_url
-                            button.text(text)
-                        },
-                    })
-                }       
-            }) 
-        });
-        </script>
-    <?php } ?>    
+    <script src="<?php echo bloginfo('template_url'); ?>/js/script.js"></script>  
 
 	<?php 
     // Google analytics: only track visits

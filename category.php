@@ -2,76 +2,71 @@
 
 	<div class="primary">
     
-    	<h2 class="category-archive">Category archive for <span class="archive-result"><?php single_cat_title(); ?></span></h2>
+    	<h2>
+            Category archive for <span class="result"><?php single_cat_title(); ?></span>
+        </h2>
     
 		<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
-				<article <?php post_class('row'); ?> >
-                
-                	<?php $img_size = get_field('feat_image_size');
-					
-					// Full-size featured images
-					if ($img_size == 'Full') { ?>
-                    	<div class="featured-image">
-							<?php the_post_thumbnail('art'); ?> 
-                        </div> 
+			<article <?php post_class(); ?>>
+                <?php $img_size = get_field('feat_image_size');
+                    
+                // Full-size featured images
+                if ($img_size == 'Full') { ?>
+                    <div class="full">
+                        <?php $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID),'art'); ?>
+                        <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+                            <img src="<?php echo $image[0]; ?>" alt="<?php the_title(); ?>" />
+                        </a>
+                            
+                <?php 
+                // Half-size featured images
+                } elseif ($img_size == 'Half') { ?>
+                    <div class="square">
+                        <?php $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID),'square'); ?>
+                        <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+                            <img src="<?php echo $image[0]; ?>" alt="<?php the_title(); ?>" />
+                        </a>
+                <?php } ?>
                                 
-                        <div class="art-content"><!-- Important: Closes in separate PHP if statement -->
-							
-					<?php // Half-size featured images
-					} elseif ($img_size == 'Half') { ?>
-                    	<div class="featured-image-square show-on-desktops">
-							<?php the_post_thumbnail('square'); ?> 
+                        <div class="title-date">
+                            <h2 class="entry-title">
+                                <a href="<?php the_permalink() ?>" title="<?php the_title(); ?>" rel="bookmark">
+                                    <?php the_title(); ?>
+                                </a>
+                            </h2>
+                    
+                            <abbr class="entry-date" title="<?php the_time('F j, Y - g:i a'); ?>">
+                                <?php the_time('F j, Y - g:i a'); ?>
+                            </abbr>
+                        </div><!-- .title-date -->
+                    
+                        <div class="entry-content">
+                            <?php the_excerpt(); ?>
+                        </div>                     
+                
+                        <div class="read-more">
+                            <?php edit_post_link('Edit / '); ?><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title(); ?>">More</a>
                         </div>
-                    <?php } ?>
-                                
-					<h2 class="entry-title">
-                    	<a href="<?php the_permalink() ?>" title="<?php the_title(); ?>" rel="bookmark"><?php the_title() ?></a>
-                    </h2>
+                <?php if ($img_size == 'Full' || $img_size == 'Half') { ?>    
+                    </div><!-- .full or .square -->
+                <?php } ?>
                     
-                    <div class="entry-date">
-                    	<abbr class="published" title="<?php the_time('F j, Y - g:i a'); ?>"><?php the_time('F j, Y - g:i a'); ?></abbr>
-                    </div> 
-                    
-                    <?php // Similar to above, but for mobile
-					if ($img_size == 'Half' ) { ?>
-                    	<div class="featured-image-square hide-on-desktops">
-							<?php the_post_thumbnail('square'); ?> </div>
-						<?php } ?>    
-                    
-					<div class="entry-content">
-						<?php the_excerpt(); ?>
-					</div> 
-                    
-                    <?php // Close .art-content
-					if ($img_size == 'Full') { ?> 
-                    	</div><!-- .art-content -->
-					<?php } ?>                      
-				
-					<div class="read-more">
-                    	<?php edit_post_link('Edit / '); ?><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title(); ?>">More</a>
-                    </div>
-                    
-				</article><!-- .post -->                  			
+            </article><!-- .post -->         			
             
-            	<?php endwhile; else: ?>
-            	<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
-                    
-            <?php endif; ?>
+        <?php endwhile; endif; ?>
             
-            </div><!-- #loop -->
+        <div id="pagination" class="league">
+			<?php wp_pagenavi(); ?>
+        </div>
             
-            <div id="pagination" class="league">
-				<?php wp_pagenavi(); ?>
-            </div>
-            
-	</div>                
+	</div><!-- .primary -->               
                 
-    <div class="two columns hide-on-phones">
+    <div class="secondary">
         <?php get_sidebar('cats'); ?>
     </div>
                 
-    <div class="three columns">
+    <div class="tertiary">
         <?php get_sidebar('projects'); ?>
     </div>        
 

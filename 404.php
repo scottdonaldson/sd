@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-	<div class="seven columns">
+	<div class="primary">
     
 		<?php the_post(); ?>
 
@@ -23,11 +23,11 @@
             
 	</div>                
                 
-    <div class="two columns hide-on-phones">
+    <div class="secondary">
         <?php get_sidebar('cats'); ?>
     </div>
                 
-    <div class="three columns">
+    <div class="tertiary">
         <?php get_sidebar('projects'); ?>
     </div>        
 

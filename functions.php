@@ -75,6 +75,7 @@ if ( function_exists('register_sidebar') )
 	
 	
 // For category lists on category archives: Returns other categories except the current one (redundant)
+/*
 function cats_meow($glue) {
 	$current_cat = single_cat_title( '', false );
 	$separator = "\n";
@@ -90,7 +91,7 @@ function cats_meow($glue) {
 
 	return trim(join( $glue, $cats ));
 }	
-
+*/
 
 // Excerpt to display ellipsis only
 function new_excerpt_more($more) {
@@ -118,55 +119,6 @@ if ( ! function_exists( 'post_is_in_descendant_category' ) ) {
 
 // Remove comments feed
 remove_action( 'wp_head', 'feed_links_extra', 3 );
-
-
-// Add custom post type for private journal entries
-class entry {
-	
-	function entry() {
-		add_action('init',array($this,'create_post_type'));
-	}
-	
-	function create_post_type() {
-		$labels = array(
-		    'name' => 'Entries',
-		    'singular_name' => 'Entry',
-		    'add_new' => 'Add New Entry',
-		    'all_items' => 'All Entries',
-		    'add_new_item' => 'Add New Entry',
-		    'edit_item' => 'Edit Entry',
-		    'new_item' => 'New Entry',
-		    'view_item' => 'View Entry',
-		    'search_items' => 'Search Entries',
-		    'not_found' =>  'No entries found',
-		    'not_found_in_trash' => 'No entries found in trash',
-		    'parent_item_colon' => '',
-		    'menu_name' => 'Entries'
-		);
-		$args = array(
-			'labels' => $labels,
-			'public' => true,
-			'exclude_from_search' => true,
-			'publicly_queryable' => false,
-			'show_ui' => true, 
-			'show_in_nav_menus' => false, 
-			'show_in_menu' => true,
-			'show_in_admin_bar' => true,
-			'menu_position' => 5,
-			'capability_type' => 'post',
-			'hierarchical' => false,
-			'supports' => array('title','editor'),
-			'has_archive' => true,
-			'rewrite' => array( 'slug' => 'journal', 'with_front' => true ),
-			'query_var' => true,
-			'can_export' => true
-		); 
-		register_post_type('entry',$args);
-	}
-}
-$entry = new entry();	
-flush_rewrite_rules();				
-				
 
 // Add admin CSS
 function scott_admin_css() {
