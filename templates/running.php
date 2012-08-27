@@ -5,21 +5,9 @@ Template Name: Running
 get_header(); ?>
 
 <style>
-	#running {
-		border: 1px solid #ccc;
-		clear: both;
-		height: 460px;
-		overflow-x: scroll;
-	}
-
-	#running * {
-		box-sizing: border-box;
-			-moz-box-sizing: border-box;
-			-webkit-box-sizing: border-box;
-	}
-
 	.times {
-		border-right: 1px solid #ccc;
+		border-left: 1px solid #ccc;
+		border-top: 1px solid #ccc;
 		float: left;
 		text-align: center;
 		width: 100px;
@@ -40,6 +28,19 @@ get_header(); ?>
 		width: 100%;
 	}
 
+	#running {
+		border: 1px solid #ccc;
+		height: 460px;
+		overflow-x: scroll;
+		white-space: nowrap;
+	}
+
+	#running * {
+		box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+	}
+
 	.table {
 		float: left;
 	}
@@ -47,8 +48,9 @@ get_header(); ?>
 	.run {
 		border-bottom: 1px solid #ccc;
 		border-right: 1px solid #ccc;
-		float: left;
+		display: inline-block;
 		height: 361px;
+		margin-right: -3px;
 		overflow: visible;
 		position: relative;
 		width: 80px;
@@ -139,16 +141,17 @@ get_header(); ?>
 </style>
 
 <h1 class="entry-title">Running</h1>
-<div id="running">
 
-	<div class="times">
-		<p>10:00</p>
-		<p>9:00</p>
-		<p>8:00</p>
-		<p>7:00</p>
-		<p>6:00</p>
-		<p>5:00</p>
-	</div><!-- .times -->
+<div class="times">
+	<p>10:00</p>
+	<p>9:00</p>
+	<p>8:00</p>
+	<p>7:00</p>
+	<p>6:00</p>
+	<p>5:00</p>
+</div><!-- .times -->
+
+<div id="running">
 	
 	<div class="table">
 	<?php if (get_field('miles')) {
