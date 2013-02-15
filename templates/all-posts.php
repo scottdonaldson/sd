@@ -1,12 +1,16 @@
-<?php get_header(); ?>
+<?php 
+/*
+Template Name: All Posts
+*/
+get_header(); the_post(); ?>
 
 	<div class="primary">
     
-    	<h2>Search results for <span class="result"><?php the_search_query(); ?></span></h2>
-    
-		<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+		<?php 
+        $paged = (get_query_var('page')) ? get_query_var('page') : 1;
+        query_posts('posts_per_page=9&paged='.$paged); while ( have_posts() ) : the_post(); ?>
 
-            <article <?php post_class(); ?>>
+			<article <?php post_class(); ?>>
                 <?php $img_size = get_field('feat_image_size');
                     
                 // Full-size featured images
@@ -50,18 +54,15 @@
                     </div><!-- .full or .square -->
                 <?php } ?>
                     
-            </article><!-- .post -->                    			
-        
-        	<?php endwhile; else: ?>
-        	<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
-                
-        <?php endif; ?>
-        
+            </article><!-- .post -->         			
+            
+        <?php endwhile; wp_reset_query(); ?>
+            
         <div id="pagination" class="league">
-            <?php wp_pagenavi(); ?>
+			<?php wp_pagenavi(); ?>
         </div>
             
-	</div>                
+	</div><!-- .primary -->               
                 
     <div class="secondary">
         <?php get_sidebar('cats'); ?>

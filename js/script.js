@@ -23,6 +23,43 @@ jQuery(document).ready(function($){
 	// Remove preload (transitions)
 	$('body').removeClass('preload');
 
+    // Set next and prev to equal height (on single posts)
+    var prev = $('.single .prev'),
+        next = $('.single .next'); 
+    var setPrevNextHeight = function(){
+        var prevHeight = prev.height(),
+            nextHeight = next.height(); 
+        if (nextHeight < prevHeight) {
+            next.height(prevHeight);
+        } else if (prevHeight < nextHeight) {
+            prev.height(nextHeight);
+        }
+    }
+    setPrevNextHeight();
+    $(window).on('resize', setPrevNextHeight);
+
+    // Recent dispatches (main page)
+    var recent = $('.recent-list a');
+    var recentHeight = function(){
+        recent.each(function(){
+            $this = $(this);
+            var itemHeight = $this.height();
+            if (itemHeight > 22) {
+                $this.css({
+                    'position': 'relative',
+                    'top': 5-.5*(itemHeight-22),
+                });
+            } else {
+                $this.css({
+                    'position': 'relative',
+                    'top': 5,
+                });
+            }
+        });
+    }
+    recentHeight();
+    $(window).on('resize', recentHeight);
+
 	// Instagram
 	var insta_container = $(".instagram"),
         insta_next_url;

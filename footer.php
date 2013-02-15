@@ -9,28 +9,21 @@
     	<div class="copyright">
         	<p>&copy; 2008-<?php echo date('Y'); ?> by Scott P. Donaldson</p>
             <div class="social">
-            	<a href="http://www.facebook.com/scottparkerdonaldson" target="_blank">
-                	<img src="<?php echo bloginfo('template_url'); ?>/images/facebook.png" height="20" width="20" />
-                </a>
-                <a href="http://www.twitter.com/scottpdonaldson" target="_blank">
-                	<img src="<?php echo bloginfo('template_url'); ?>/images/twitter.png" />
-                </a>
-                <a href="https://profiles.google.com/scott.p.donaldson" target="_blank" rel="me">
-                	<img src="<?php echo bloginfo('template_url'); ?>/images/google.png" height="20" width="20" />
-                </a>
-                <a href="http://www.linkedin.com/profile/view?id=143429515" target="_blank">
-	                <img src="<?php echo bloginfo('template_url'); ?>/images/linkedin.png" />
-    			</a>
-                <a href="mailto:scott.p.donaldson@gmail.com">
-	                <img src="<?php echo bloginfo('template_url'); ?>/images/email.png" />
-    			</a>
+            	<a class="icon-facebook" href="http://www.facebook.com/scottparkerdonaldson" target="_blank" title="Facebook"></a>
+                <a class="icon-twitter" href="http://www.twitter.com/scottpdonaldson" target="_blank" title="Twitter"></a>
+                <a class="icon-google-plus" href="https://profiles.google.com/scott.p.donaldson" target="_blank"  title="Google Plus"rel="me"></a>
+                <a class="icon-linkedin" href="http://www.linkedin.com/profile/view?id=143429515" target="_blank" title="LinkedIn"></a>
+                <a class="icon-github" href="https://www.github.com/scottdonaldson" target="_blank" title="GitHub"></a>
+                <a class="icon-lastfm" href="http://www.lastfm.com/user/scottdonaldson" target="_blank" title="Last.fm"></a>
+                <a class="icon-mail" href="mailto:scott.p.donaldson@gmail.com" title="Email"></a>
             </div>
         </div> 
 	</footer>
 
 </div><!-- #page .hfeed .container -->
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="<?php echo bloginfo('template_url'); ?>/js/vendor/jquery-1.8.0.min.js"><\/script>')</script>
 	<script src="<?php echo bloginfo('template_url'); ?>/js/plugins.js"></script>
     <script src="<?php echo bloginfo('template_url'); ?>/js/script.js"></script>  
 

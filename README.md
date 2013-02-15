@@ -1,3 +1,5 @@
-# Site in development at scottdonaldson.net
+# scottdonaldson.net
+
+## Site development
 
 Restructuring with SASS - Aug. and Sep. 2012

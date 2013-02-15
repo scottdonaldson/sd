@@ -13,28 +13,26 @@
                 <div class="author visuallyhidden">By <?php the_author(); ?></div>
             </div>
                     
-            <div class="hide-on-phones"><?php the_category(); ?></div>
+            <div class="clearfix"><?php the_category(); ?></div>
 
             <div class="entry-content">
             	<?php the_content(); ?>
             </div>  
-                    
-            <div class="show-on-phones"><?php the_category(); ?></div>
               
 		</article><!-- .post -->
                 
         <nav class="navigation clearfix">
-            <?php previous_post_link('%link','&larr; Prev: %title'); ?>
-            <?php next_post_link('%link','Next: %title &rarr;'); ?>             
+            <div class="prev clearfix">
+                <?php previous_post_link('%link','<div class="arrow">&larr;</div><div class="link">Prev: %title</div>'); ?>
+            </div>
+            <div class="next clearfix">
+                <?php next_post_link('%link','<div class="arrow">&rarr;</div><div class="link">Next: %title</div>'); ?>
+            </div>
 		</nav>    
                 
-		<?php if ($streamlined == 'No' || $streamlined == '') {
-		comments_template(); } ?>
+		<?php comments_template(); ?>
 
-	<?php 
-	if ($streamlined == 'No' || $streamlined == '') { ?>  
-
-	</div> <!-- .seven .columns -->             
+	</div><!-- .primary -->             
                 
     <div class="secondary">
         <?php get_sidebar('recent'); ?>
@@ -42,8 +40,6 @@
                 
     <div class="tertiary">
         <?php get_sidebar('projects'); ?>
-    </div> 
-    
-    <?php } ?>       
+    </div>       
 
 <?php get_footer(); ?>

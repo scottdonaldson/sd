@@ -10,9 +10,13 @@
 	<title><?php wp_title(''); ?></title>
 	<meta http-equiv="content-type" content="<?php bloginfo('html_type') ?>; charset=<?php bloginfo('charset') ?>" />
 	
-    <link rel="stylesheet" href="<?php bloginfo('stylesheet_url') ?>" />
-    <link rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/style.css" />
-    <link rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/media.css" />
+    <link rel="author" href="<?php echo bloginfo('template_url'); ?>/humans.txt" />
+
+    <link rel="stylesheet" href="<?php echo bloginfo('stylesheet_url'); ?>" />
+    <link rel="stylesheet" href="<?php echo bloginfo('template_url'); ?>/css/style.css" />
+    <link rel="stylesheet" href="<?php echo bloginfo('template_url'); ?>/css/media.css" />
+
+    <script src="<?php echo bloginfo('template_url'); ?>/js/vendor/modernizr-2.6.1.min.js"></script>
     
     <meta name="google-site-verification" content="hy4R03lS3g4OIIWVorLsLTuvOCEFCoDKUeQPI1fwSwg" />
     

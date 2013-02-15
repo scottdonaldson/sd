@@ -16,37 +16,8 @@ if ( function_exists( 'add_theme_support' ) ) {
 	add_image_size( 'square', 400, 400, true );
 }
 
-/* ------ Parsley & Sprouts widget -------- */
-
-function parsley_sprouts_widget() {
-	// Display whatever it is you want to show
-	echo '<div class="rss-widget">';
-       wp_widget_rss_output(array(
-            'url' => 'http://scottdonaldson.net/feed',  //put your feed URL here
-            'title' => 'News Feed', // Your feed title
-            'items' => 3, //how many posts to show
-            'show_summary' => 1, // 0 = false and 1 = true 
-            'show_author' => 0,
-            'show_date' => 1
-       ));
-       echo "</div><hr />",
-	       		"<form id='parsley-sprouts-contact'>",
-		   			"<label>Questions? Comments? Want to say hi? Send us a message:</label><br />",
-		   			"<textarea rows='5' cols='40'></textarea><br />",
-		   			"<input type='submit' value='Send'></input>",
-	   			"</form>";
-} 
-
-// Create the function use in the action hook
-
-function register_dashboard_widget() {
-	wp_add_dashboard_widget('parsley_sprouts', 'Parsley &amp; Sprouts', 'parsley_sprouts_widget');	
-} 
-
-// Hook into the 'wp_dashboard_setup' action to register our other functions
-
-add_action('wp_dashboard_setup', 'register_dashboard_widget' );
-
+// No inline height and width output on images
+add_filter( 'post_thumbnail_html', 'remove_thumbnail_dimensions', 10 ); add_filter( 'image_send_to_editor', 'remove_thumbnail_dimensions', 10 ); function remove_thumbnail_dimensions( $html ) { $html = preg_replace( '/(width|height)=\"\d*\"\s/', "", $html ); return $html; }
 
 // Sidebars
 
@@ -72,26 +43,6 @@ if ( function_exists('register_sidebar') )
 	'before_title' => '<h3 style="display:none">',
  	'after_title' => '</h3>'
 ));	
-	
-	
-// For category lists on category archives: Returns other categories except the current one (redundant)
-/*
-function cats_meow($glue) {
-	$current_cat = single_cat_title( '', false );
-	$separator = "\n";
-	$cats = explode( $separator, get_the_category_list($separator) );
-	foreach ( $cats as $i => $str ) {
-		if ( strstr( $str, ">$current_cat<" ) ) {
-			unset($cats[$i]);
-			break;
-		}
-	}
-	if ( empty($cats) )
-		return false;
-
-	return trim(join( $glue, $cats ));
-}	
-*/
 
 // Excerpt to display ellipsis only
 function new_excerpt_more($more) {

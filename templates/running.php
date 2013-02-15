@@ -31,6 +31,7 @@ get_header(); ?>
 	#running {
 		border: 1px solid #ccc;
 		height: 460px;
+		margin-bottom: 20px;
 		overflow-x: scroll;
 		white-space: nowrap;
 	}
@@ -133,9 +134,10 @@ get_header(); ?>
 		font-style: italic;
 		height: 30px;
 		line-height: 1.4;
-		padding: 10px 5px 0;
+		padding: 10px 6px 0;
 		position: absolute;
 		text-align: center;
+		white-space: normal;
 		width: 100%;
 	}
 </style>

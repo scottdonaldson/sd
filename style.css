@@ -1,7 +1,8 @@
 /*
-Theme Name: Scott Donaldson (in development)
+Theme Name: Scott Donaldson
 Author: Parsley &amp; Sprouts
 Author URI: http://www.parsleyandsprouts.com
+Description: Theme for Scott Donaldson.
 Version: 2.5
 */
 article, aside, details, figcaption, figure, footer, header, hgroup, nav, section { display: block; }
@@ -34,7 +35,8 @@ sub { bottom: -0.25em; }
 ul, ol { margin: 1em 0; padding: 0 0 0 40px; }
 dd { margin: 0 0 0 40px; }
 nav ul, nav ol { list-style: none; list-style-image: none; margin: 0; padding: 0; }
-img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; max-width: 100%; height: auto; }
+img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; max-width: 100%; height: auto !important; }
+.oldie img { width: auto\0/; }
 svg:not(:root) { overflow: hidden; }
 figure { margin: 0; }
 form { margin: 0; }
@@ -49,7 +51,7 @@ input[type="checkbox"], input[type="radio"] { box-sizing: border-box; padding: 0
 input[type="search"] { -webkit-appearance: textfield; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box; }
 input[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-search-cancel-button { -webkit-appearance: none; }
 button::-moz-focus-inner, input::-moz-focus-inner { border: 0; padding: 0; }
-textarea { overflow: auto; vertical-align: top; resize: vertical; }
+textarea { overflow: auto; vertical-align: top; resize: vertical; width: 100%;}
 input:valid, textarea:valid {  }
 input:invalid, textarea:invalid { background-color: #f0dddd; }
 table { border-collapse: collapse; border-spacing: 0; }

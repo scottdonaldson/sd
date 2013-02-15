@@ -5,11 +5,11 @@ Template Name: About
 
 get_header(); ?>
 
-	<div class="seven columns">
+	<div class="primary">
     
 		<?php the_post(); ?>
 
-				<article <?php post_class('row'); ?>>
+				<article <?php post_class(); ?>>
                                 
 					<h2 class="entry-title">
                     	Hi, I'm Scott
@@ -23,11 +23,11 @@ get_header(); ?>
             
 	</div>                
                 
-    <div class="two columns hide-on-phones">
+    <div class="secondary">
         <?php get_sidebar('cats'); ?>
     </div>
                 
-    <div class="three columns">
+    <div class="tertiary">
         <?php get_sidebar('projects'); ?>
     </div>        
 

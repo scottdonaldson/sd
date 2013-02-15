@@ -1,30 +1,28 @@
-<?php get_header(); ?>
+<?php get_header(); the_post(); ?>
 
-	<div class="seven columns">
-    
-		<?php the_post(); ?>
+	<div class="primary">
 
-				<article <?php post_class('row'); ?>>
-                                
-					<h2 class="entry-title">
-                    	<?php the_title() ?>
-                    </h2>
-                    
-                    <div class="author visuallyhidden">By <?php the_author(); ?></div>
-                    
-					<div class="entry-content">
-						<?php the_content(); ?>
-					</div>   
-                    
-				</article><!-- .post -->
+		<article <?php post_class(); ?>>
+                        
+			<h2 class="entry-title">
+            	<?php the_title(); ?>
+            </h2>
+            
+            <div class="author visuallyhidden">By <?php the_author(); ?></div>
+            
+			<div class="entry-content">
+				<?php the_content(); ?>
+			</div>   
+            
+		</article><!-- .post -->
             
 	</div>                
                 
-    <div class="two columns hide-on-phones">
+    <div class="secondary">
         <?php get_sidebar('cats'); ?>
     </div>
                 
-    <div class="three columns">
+    <div class="tertiary">
         <?php get_sidebar('projects'); ?>
     </div>        
 
