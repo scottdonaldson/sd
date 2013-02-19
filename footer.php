@@ -8,7 +8,7 @@
     
     	<div class="copyright">
         	<p>&copy; 2008-<?php echo date('Y'); ?> by Scott P. Donaldson</p>
-            <div class="social">
+            <div class="social clearfix">
             	<a class="icon-facebook" href="http://www.facebook.com/scottparkerdonaldson" target="_blank" title="Facebook"></a>
                 <a class="icon-twitter" href="http://www.twitter.com/scottpdonaldson" target="_blank" title="Twitter"></a>
                 <a class="icon-google-plus" href="https://profiles.google.com/scott.p.donaldson" target="_blank"  title="Google Plus"rel="me"></a>

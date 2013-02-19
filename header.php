@@ -31,12 +31,16 @@
 	<header class="clearfix">
 		<div id="blog-title">
 			<?php if (is_home() ) { ?>
-            	<h1 class="league"><?php } else { ?>
-            	<h3 class="league"><?php } ?>
+            	<h1 class="league">
+            <?php } else { ?>
+            	<h3 class="league">
+            <?php } ?>
         			<a href="<?php echo home_url(); ?>" title="Scott P. Donaldson" rel="home">scott<span class="grey">p</span>donaldson</a>
         	<?php if (is_home() ) { ?>
-        		</h1><?php } else { ?>
-        		</h3><?php } ?>
+        		</h1>
+            <?php } else { ?>
+        		</h3>
+            <?php } ?>
         </div><!-- #blog-title -->
         
         <div class="show-on-phones columns">

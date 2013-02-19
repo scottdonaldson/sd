@@ -4,9 +4,9 @@
 
 		<article <?php post_class(); ?>>
                         
-			<h2 class="entry-title">
+			<h1 class="entry-title">
             	<?php the_title(); ?>
-            </h2>
+            </h1>
             
             <div class="author visuallyhidden">By <?php the_author(); ?></div>
             
