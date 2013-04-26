@@ -9,5 +9,6 @@ jQuery(document).ready(function($){
 			}
 		})
 	}
+	getStream();
 
 });

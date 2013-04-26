@@ -1,6 +1,6 @@
 <?php 
 /*
-Template Name: Full width (no sidebars) page
+Template Name: Scrobbler
 */
 get_header();
 the_post(); ?>
