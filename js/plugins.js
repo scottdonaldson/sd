@@ -3,6 +3,26 @@ window.log = function f(){ log.history = log.history || []; log.history.push(arg
 (function(a){function b(){}for(var c="assert,count,debug,dir,dirxml,error,exception,group,groupCollapsed,groupEnd,info,log,markTimeline,profile,profileEnd,time,timeEnd,trace,warn".split(","),d;!!(d=c.pop());){a[d]=a[d]||b;}})
 (function(){try{console.log();return window.console;}catch(a){return (window.console={});}}());
 
+// Getting and setting cookies
+function cGet(name) {
+  var b,
+      cookies = document.cookie.split("; "),
+      num = cookies.length; 
+    do { 
+      b = cookies[num - 1].split("="); 
+      if (b[0] === name) { 
+        return b[1] || ''; 
+      } 
+    } while(--num); 
+    return null;
+}
+
+var sd_now = new Date().getTime();
+
+function cSet(name, v, exp) { 
+  document.cookie = name + "=" + v + "; path=/; domain=.scottdonaldson.net;" + ( (exp) ? "expires=" + new Date(sd_now + (exp*864e5)).toGMTString() : '');
+}
+
 /*!
 * FitVids 1.0
 *
