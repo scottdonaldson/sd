@@ -27,13 +27,17 @@
 	<script src="<?php echo bloginfo('template_url'); ?>/js/plugins.js"></script>
     <script src="<?php echo bloginfo('template_url'); ?>/js/script.js"></script>
 
-    <?php if (is_page('Social URLs')) { ?>
-        <script src="<?php echo bloginfo('template_url'); ?>/js/social.js"></script>
-    <?php } elseif (is_page('URL Sourcery')) { ?>
-        <script src="<?php echo bloginfo('template_url'); ?>/js/source.js"></script>
-    <?php } elseif (is_page('Scrobbler')) { ?>
-        <script src="<?php echo bloginfo('template_url'); ?>/js/scrobbler.js"></script>
-    <?php } ?>
+    <?php 
+    $unique_js = [
+        'Social URLs' => 'social',
+        'URL Sourcery' => 'source',
+        'Scrobbler' => 'scrobbler'
+    ];
+    foreach ($unique_js as $page => $url) { 
+        if (is_page($page)) { ?>
+            <script src="<?php echo bloginfo('template_url'); ?>/js/<?= $url; ?>.js"></script>
+        <?php }
+    } ?>
 
 	<?php 
     // Google analytics: only track visits

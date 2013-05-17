@@ -39,22 +39,12 @@ jQuery(document).ready(function($){
     $(window).on('resize', setPrevNextHeight);
 
     // Recent dispatches (main page)
-    var recent = $('.recent-list a');
-    var recentHeight = function(){
-        recent.each(function(){
+    var recent = $('.recent-list a'),
+        top;
+    var recentHeight = function() {
+        recent.each(function() {
             $this = $(this);
-            var itemHeight = $this.height();
-            if (itemHeight > 22) {
-                $this.css({
-                    'position': 'relative',
-                    'top': 5-.5*(itemHeight-22),
-                });
-            } else {
-                $this.css({
-                    'position': 'relative',
-                    'top': 5,
-                });
-            }
+            top = $this.height() > 22 ? 16 - 0.5 * $this.height() : 5;
         });
     }
     recentHeight();
