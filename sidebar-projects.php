@@ -1,6 +1,12 @@
 <div class="sidebar projects">
-		<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('projects') ) : // begin primary sidebar widgets ?>
+
 		<h3 class="projects-title league">Other Projects</h3>	
+
+        <a href="http://www.restho.me" target="_blank">
+            <h4>'Rest Home</h4>
+            <img src="<?php echo bloginfo('template_url'); ?>/images/RestHome-photo.jpg" alt="'Rest Home" />
+        </a>
+        <p>Internet comedy series written by and starring Tim Carroll, Scott Donaldson, and Greg Hunter.</p>
         
         <a href="http://www.parsleyandsprouts.com" target="_blank">
         	<h4>Parsley &amp; Sprouts</h4>
@@ -20,18 +26,5 @@
         </a>
         
         <p>A Midwest music blog, with album and concert reviews of national and local artists.</p>
-        
-        <?php /* A goodbye to 'Rest Home?
 
-        <a href="http://www.restho.me" target="_blank">
-        	<h4>'Rest Home</h4>
-        	<img src="<?php echo bloginfo('template_url'); ?>/images/RestHome-photo.jpg" alt="'Rest Home" />
-        </a>
-        
-        <p>Internet comedy series &mdash; expected launch in September 2012. Stay tuned!</p>
-
-        */ ?>
-
-
-		<?php endif; // end primary sidebar widgets  ?>
 </div>
