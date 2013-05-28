@@ -30,6 +30,7 @@
     <?php 
     // Load unique JS for some specific pages
     $unique_js = array(
+        'Photos' => 'instagram',
         'Feed Dialog' => 'feed',
         'Social URLs' => 'social',
         'URL Sourcery' => 'source',
