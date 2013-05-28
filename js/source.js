@@ -10,6 +10,7 @@ jQuery(document).ready(function($){
 		getMedium = medium,
 		content = $('#content'),
 		campaign = $('#campaign'),
+		bsd_source = $('#bsd_source'),
 		select,
 		output = $('textarea');
 
@@ -73,18 +74,19 @@ jQuery(document).ready(function($){
 			checkTextInputCookie(input);
 		}
 	}
-	textInputCookie(['base', 'content', 'campaign']);
+	textInputCookie(['base', 'content', 'campaign', 'bsd_source']);
 
-	function buildURL(base, source, medium, content, campaign) {
+	function buildURL(base, source, medium, content, campaign, bsd_source) {
 		url = base + '?utm_source=' + encodeURIComponent(source) + '&utm_medium=' + encodeURIComponent(medium);
 		content ? url += '&utm_content=' + encodeURIComponent(content) : '';
 		campaign ? url += '&utm_campaign=' + encodeURIComponent(campaign) : '';
+		bsd_source ? url += '&source=' + encodeURIComponent(bsd_source) : '';
 
 		return url;
 	}
-	output.html(buildURL(base.val(), getSource.val(), getMedium.val(), content.val(), campaign.val()));
-	$('#base, #source, #source-other, #medium, #medium-other, #content, #campaign').on('keyup change', function(){
-		output.html(buildURL($('#base').val(), getSource.val(), getMedium.val(), $('#content').val(), $('#campaign').val()));
+	output.html(buildURL(base.val(), getSource.val(), getMedium.val(), content.val(), campaign.val(), bsd_source.val()));
+	$('#base, #source, #source-other, #medium, #medium-other, #content, #campaign, #bsd_source').on('keyup change', function(){
+		output.html(buildURL($('#base').val(), getSource.val(), getMedium.val(), $('#content').val(), $('#campaign').val(), $('#bsd_source').val()));
 	});
 
 	output.focus(function(){

@@ -60,6 +60,11 @@ the_post();
 					<h3>Campaign</h3>
 					<input type="text" name="campaign" id="campaign">
 				</label>
+
+				<label for="bsd_source">
+					<h3>Source (BSD only)</h3>
+					<input type="text" name="bsd_source" id="bsd_source">
+				</label>
 				
 				<h3>Result</h3>
 				<textarea class="code"></textarea>

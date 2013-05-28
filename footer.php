@@ -11,7 +11,7 @@
             <div class="social clearfix">
             	<a class="icon-facebook" href="http://www.facebook.com/scottparkerdonaldson" target="_blank" title="Facebook"></a>
                 <a class="icon-twitter" href="http://www.twitter.com/scottpdonaldson" target="_blank" title="Twitter"></a>
-                <a class="icon-google-plus" href="https://profiles.google.com/scott.p.donaldson" target="_blank"  title="Google Plus"rel="me"></a>
+                <a class="icon-google-plus" href="https://profiles.google.com/scott.p.donaldson" target="_blank"  title="Google Plus" rel="me"></a>
                 <a class="icon-linkedin" href="http://www.linkedin.com/profile/view?id=143429515" target="_blank" title="LinkedIn"></a>
                 <a class="icon-github" href="https://www.github.com/scottdonaldson" target="_blank" title="GitHub"></a>
                 <a class="icon-lastfm" href="http://www.lastfm.com/user/scottdonaldson" target="_blank" title="Last.fm"></a>
@@ -28,11 +28,13 @@
     <script src="<?php echo bloginfo('template_url'); ?>/js/script.js"></script>
 
     <?php 
-    $unique_js = [
+    // Load unique JS for some specific pages
+    $unique_js = array(
+        'Feed Dialog' => 'feed',
         'Social URLs' => 'social',
         'URL Sourcery' => 'source',
         'Scrobbler' => 'scrobbler'
-    ];
+    );
     foreach ($unique_js as $page => $url) { 
         if (is_page($page)) { ?>
             <script src="<?php echo bloginfo('template_url'); ?>/js/<?= $url; ?>.js"></script>
