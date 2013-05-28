@@ -26,7 +26,7 @@ jQuery(document).ready(function($){
     // Set next and prev to equal height (on single posts)
     var prev = $('.single .prev'),
         next = $('.single .next'); 
-    var setPrevNextHeight = function(){
+    function setPrevNextHeight(){
         var prevHeight = prev.height(),
             nextHeight = next.height(); 
         if (nextHeight < prevHeight) {
@@ -41,10 +41,11 @@ jQuery(document).ready(function($){
     // Recent dispatches (main page)
     var recent = $('.recent-list a'),
         top;
-    var recentHeight = function() {
+    function recentHeight() {
         recent.each(function() {
             $this = $(this);
             top = $this.height() > 22 ? 16 - 0.5 * $this.height() : 5;
+            $this.css('top', top);
         });
     }
     recentHeight();
