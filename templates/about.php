@@ -21,7 +21,7 @@ get_header(); ?>
 					// convert the time difference to days
 					$days = ceil($days/(60 * 60 * 24));
 					// add comma
-					$days = number_format($string, 0, '', ',');
+					$days = number_format($days, 0, '', ',');
 					?>
                     
 					<div class="entry-content">
