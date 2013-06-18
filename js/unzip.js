@@ -12,6 +12,14 @@ jQuery(document).ready(function($){
 		expand = $('.expand');
 
 	var url = 'http://zip.elevenbasetwo.com/v2/US/';
+
+	// create an empty object to store results (so as to not duplicate)
+	var remembered = {};
+	// remember() function sets a key in remembered equal to the zip with an array
+	// of the city and state for the corresponding value
+	function remember(zip, result) {
+		remembered[zip] = {city: result.city, state: result.state};
+	}
 	
 	function returnError(i) {
 		output_cities.val(output_cities.val() + 'ERROR\n');
@@ -37,24 +45,35 @@ jQuery(document).ready(function($){
 	}
 
 	function getResult(zips, i) {
+		// Don't continue trying to get results past the number
+		// of ZIP codes we're getting results for, duh
 		if (i < zips.length) {
-			$.ajax({
-				url: url + zips[i],
-				error: function(){
-					returnError(i);
-				},
-				success: function(data) {
-					returnSuccess(data);
-					getResult(zips, i + 1);
-				}
-			});
+			// if the ZIP is already in our remembered object, pull from there rather than the API
+			if (zips[i] in remembered) {
+				returnSuccess(remembered[zips[i]]);
+				getResult(zips, i + 1);
+			} else {
+				$.ajax({
+					url: url + zips[i],
+					error: function(){
+						returnError(i);
+					},
+					success: function(data) {
+						remember(zips[i], data);
+
+						returnSuccess(data);
+
+						getResult(zips, i + 1);
+					}
+				});
+			}
 		}
 	}
 
 	function unzip() {
 		clearOutput();
 		zips = input.val().split('\n');
-
+		// Always start with 0 (increments on success)
 		getResult(zips, 0);
 	}
 	$('input[type="submit"]').on('click', unzip);
@@ -69,6 +88,7 @@ jQuery(document).ready(function($){
 			opacity: 1
 		});
 
+		// Set a slight delay to allow the overlay to fade in
 		setTimeout(function(){
 			checkInput.appendTo(body).html(input.val().replace(/\n/g, '<br>'));
 
