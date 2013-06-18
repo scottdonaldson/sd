@@ -80,6 +80,7 @@ jQuery(document).ready(function($){
 
 	var overlay = $('<div class="overlay"></div>'),
 		checkInput = $('<div class="check-input"></div>'),
+		close = $('<div class="close">[ESC]</div>'),
 		checking,
 		errorStart;
 	function explode(theError) {
@@ -103,6 +104,8 @@ jQuery(document).ready(function($){
 			errorStart = checkInput.html().indexOf(checking[theError]);
 			console.log(checkInput.html().substr(errorStart, checking[theError].length));
 			checkInput.html(checkInput.html().replace(checkInput.html().substr(errorStart, checking[theError].length), '<span style="background: #ff0;">' + checkInput.html().substr(errorStart, checking[theError].length) + '</span>'));
+
+			close.appendTo(checkInput).on('click', resetErrors);
 
 		}, 500);
 	}
