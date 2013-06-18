@@ -34,7 +34,8 @@
         'Feed Dialog' => 'feed',
         'Social URLs' => 'social',
         'URL Sourcery' => 'source',
-        'Scrobbler' => 'scrobbler'
+        'Scrobbler' => 'scrobbler',
+        'Unzip' => 'unzip'
     );
     foreach ($unique_js as $page => $url) { 
         if (is_page($page)) { ?>
