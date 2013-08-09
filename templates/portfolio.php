@@ -19,7 +19,10 @@ get_header(); the_post(); ?>
                 $items = get_field('items');
                 $p = 1;
                 
-                foreach ($items as $item) { ?>
+                foreach ($items as $item) { 
+                    // only include the first 6 items
+                    if ($p <= 6) {
+                    ?>
                     <a class="item p-<?php echo $p; ?>" href="<?php echo $item['link']; ?>" target="_blank">
                         <img src="<?php echo $item['image']; ?>" alt="<?php echo $item['name']; ?>">
                         <div class="description">
@@ -27,8 +30,9 @@ get_header(); the_post(); ?>
                             <p><?php echo $item['description']; ?></p>
                         </div>
                         <span class="league">Visit Site</a>
-                    </a>                
-                <?php 
+                    </a>    
+                    <?php
+                    } 
                 $p++;
                 } ?>
             </div>
