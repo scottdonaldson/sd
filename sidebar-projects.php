@@ -12,7 +12,7 @@
         	<h4>Parsley &amp; Sprouts</h4>
         	<img src="<?= bloginfo('template_url'); ?>/images/Parsley-photo.jpg" alt="Parsley and Sprouts" />
         </a>
-        <p>Washington DC-based web and print design, code, and development (formerly located in Minneapolis/St. Paul).</p>  
+        <p>Washington DC-based web design and development (formerly located in Minneapolis/St. Paul).</p>  
 
         <a href="<?= home_url(); ?>/st-paul-skyways">
             <h4>St. Paul Skyways</h4>
