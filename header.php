@@ -27,7 +27,6 @@
 <body <?php body_class('preload'); ?>>
 
 <div id="page" class="hfeed container">
-
 	<header class="clearfix">
 		<div id="blog-title">
 			<?php if (is_home() ) { ?>
