@@ -223,13 +223,14 @@ header {
 	margin-top: 32px;
 	width: 10%;
 
-	img {
+	a {
+		display: block;
 		float: right;
 		width: 81%;
-	}
-
-	img:hover {
-		@include opacity(0.5);
+		&:hover,
+		&:active {
+			@include opacity(0.5);
+		}
 	}
 }
 
@@ -554,6 +555,10 @@ header {
 .sidebar {
 	list-style-type: none;
 	margin-bottom: 20px;
+
+	a {
+		display: block;
+	}
 
 	h3 {
 		color: $turquoise;

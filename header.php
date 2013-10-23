@@ -54,7 +54,7 @@
                 // Show link 'What about Scott' if not on About page,
                 // 'All about Scott' if on About page
                 if (!is_page('about')) { ?>
-                    <a href="<?php echo home_url(); ?>/about/" title="About">
+                    <a href="<?php echo home_url(); ?>/about/" title="About" onclick="_gaq.push(['_trackEvent', 'Click', 'Internal Link', 'Header - About']);">
                         <span class="grey">what</span>
                         about
                         <span class="grey">scott</span>
@@ -68,7 +68,7 @@
         </div>
         
         <div id="photos">
-	    	<a href="<?php echo home_url(); ?>/photos" title="Instagram Feed | Scott Donaldson">
+	    	<a href="<?php echo home_url(); ?>/photos" title="Instagram Feed | Scott Donaldson" onclick="_gaq.push(['_trackEvent', 'Click', 'Internal Link', 'Header - Instagram Feed']);">
             	<img src="<?php echo bloginfo('template_url'); ?>/images/instagram.jpg" />
             </a>
     	</div>
