@@ -2,11 +2,12 @@
 
 	<div class="primary">
     
-		<?php if ( have_posts() ) : while ( have_posts() ) : 
-		$i;
+		<?php 
+        $i = 0;
+        if ( have_posts() ) : while ( have_posts() ) : 
 		the_post(); 
 		$i++; 
-    		if ($i<4) { ?>
+    		if ( $i < 4 ) { ?>
                 <article <?php post_class(); ?>>
                     <?php $img_size = get_field('feat_image_size');
 					
@@ -53,7 +54,7 @@
                     
 				</article><!-- .post -->
                 
-            <?php } elseif ($i==4) { ?>
+            <?php } elseif ($i == 4) { ?>
 			
             	<h3>Recent Dispatches</h3>
                 
@@ -68,7 +69,7 @@
                             </a>
                         </li>
     
-			<?php } elseif ($i==5||$i==7||$i==8) { ?>
+			<?php } elseif ( $i == 5 || $i == 7 || $i == 8 ) { ?>
 
                         <li>
                             <abbr title="<?php the_time('F j, Y - g:i a'); ?>">
@@ -79,7 +80,7 @@
                             </a>
                         </li>
                             
-			<?php } elseif ($i==6) { ?>
+			<?php } elseif ( $i == 6 ) { ?>
 
                         <li>
                             <abbr title="<?php the_time('F j, Y - g:i a'); ?>">
@@ -92,7 +93,7 @@
                     </ul><!-- .recent-list -->
                     <ul class="recent-list">  
                                               
-  			<?php } elseif ($i==9) { ?>
+  			<?php } elseif ( $i == 9 ) { ?>
             
                         <li>
                         	<abbr title="<?php the_time('F j, Y - g:i a'); ?>">
@@ -108,11 +109,11 @@
     </div><!-- .primary -->              
                 
     <div class="secondary">
-        <?php get_sidebar('cats'); ?>
+        <?php get_sidebar( 'cats' ); ?>
     </div>
                 
     <div class="tertiary">
-        <?php get_sidebar('projects'); ?>
+        <?php get_sidebar( 'projects' ); ?>
     </div>        
 
 
