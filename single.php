@@ -28,9 +28,7 @@
             <div class="next clearfix">
                 <?php next_post_link('%link','<div class="arrow">&rarr;</div><div class="link">Next: %title</div>'); ?>
             </div>
-		</nav>    
-                
-		<?php comments_template(); ?>
+		</nav>
 
 	</div><!-- .primary -->             
                 
