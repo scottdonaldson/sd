@@ -54,6 +54,50 @@ add_filter('excerpt_more', 'new_excerpt_more');
 // Add custom editor style
 add_editor_style();
 
+// Custom post type for images
+add_action( 'init', 'register_cpt_image' );
+
+function register_cpt_image() {
+
+    $labels = array( 
+        'name' => _x( 'Images', 'image' ),
+        'singular_name' => _x( 'Image', 'image' ),
+        'add_new' => _x( 'Add New', 'image' ),
+        'add_new_item' => _x( 'Add New Image', 'image' ),
+        'edit_item' => _x( 'Edit Image', 'image' ),
+        'new_item' => _x( 'New Image', 'image' ),
+        'view_item' => _x( 'View Image', 'image' ),
+        'search_items' => _x( 'Search Images', 'image' ),
+        'not_found' => _x( 'No images found', 'image' ),
+        'not_found_in_trash' => _x( 'No images found in Trash', 'image' ),
+        'parent_item_colon' => _x( 'Parent Image:', 'image' ),
+        'menu_name' => _x( 'Images', 'image' ),
+    );
+
+    $args = array( 
+        'labels' => $labels,
+        'hierarchical' => false,
+        
+        'supports' => array( 'title', 'editor', 'excerpt' ),
+        
+        'public' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'menu_position' => 20,
+        
+        'show_in_nav_menus' => true,
+        'publicly_queryable' => true,
+        'exclude_from_search' => true,
+        'has_archive' => false,
+        'query_var' => true,
+        'can_export' => true,
+        'rewrite' => true,
+        'capability_type' => 'post'
+    );
+
+    register_post_type( 'image', $args );
+  }
+
 
 // Call descendant posts within ancestor categories
 if ( ! function_exists( 'post_is_in_descendant_category' ) ) {

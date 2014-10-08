@@ -37,7 +37,7 @@ get_header(); the_post(); ?>
                 } ?>
             </div>
 
-            <a href="<?php echo home_url(); ?>/blog/category/web" class="web league">Read my blog posts on web dev</a>
+            <a href="<?php echo home_url(); ?>/category/web" class="web league">Read my blog posts on web dev</a>
             
         </article><!-- .post -->
             

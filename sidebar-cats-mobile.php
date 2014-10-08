@@ -4,15 +4,15 @@
 	
     <ul class="row">
         <li class="phone-two columns"><a href="<?php echo home_url(); ?>/about">About</a></li>
-        <li class="phone-two columns"><a href="<?php echo home_url(); ?>/blog/category/web">Web</a></li>
+        <li class="phone-two columns"><a href="<?php echo home_url(); ?>/category/web">Web</a></li>
     </ul>
     <ul class="row">
-        <li class="phone-two columns"><a href="<?php echo home_url(); ?>/blog/category/art">Art</a></li>
-        <li class="phone-two columns"><a href="<?php echo home_url(); ?>/blog/category/misc">Misc</a></li>
+        <li class="phone-two columns"><a href="<?php echo home_url(); ?>/category/art">Art</a></li>
+        <li class="phone-two columns"><a href="<?php echo home_url(); ?>/category/misc">Misc</a></li>
     </ul>
     <ul class="row">
-        <li class="phone-two columns"><a href="<?php echo home_url(); ?>/blog/category/music">Music</a></li>
-        <li class="phone-two columns"><a href="<?php echo home_url(); ?>/blog/category/personal">Personal</a></li>
+        <li class="phone-two columns"><a href="<?php echo home_url(); ?>/category/music">Music</a></li>
+        <li class="phone-two columns"><a href="<?php echo home_url(); ?>/category/personal">Personal</a></li>
     </ul>        
         
 	<?php endif; // end categories sidebar widgets  ?>

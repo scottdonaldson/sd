@@ -4,11 +4,11 @@
     <h3 class="categories-title">Categories</h3>	
 	
     <ul>
-	    <li class="web"><a href="<?php echo home_url(); ?>/blog/category/web">Web</a></li>
-        <li class="music"><a href="<?php echo home_url(); ?>/blog/category/music">Music</a></li>
-		<li class="art"><a href="<?php echo home_url(); ?>/blog/category/art">Art</a></li>
-        <li class="personal"><a href="<?php echo home_url(); ?>/blog/category/personal">Personal</a></li>
-        <li class="misc"><a href="<?php echo home_url(); ?>/blog/category/misc">Misc</a></li>
+	    <li class="web"><a href="<?php echo home_url(); ?>/category/web">Web</a></li>
+        <li class="music"><a href="<?php echo home_url(); ?>/category/music">Music</a></li>
+		<li class="art"><a href="<?php echo home_url(); ?>/category/art">Art</a></li>
+        <li class="personal"><a href="<?php echo home_url(); ?>/category/personal">Personal</a></li>
+        <li class="misc"><a href="<?php echo home_url(); ?>/category/misc">Misc</a></li>
     </ul>    
         
 	<?php endif; // end categories sidebar widgets  ?>

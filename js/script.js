@@ -9,6 +9,7 @@ jQuery(document).ready(function($){
 	$('.about-title').fitted(0.63),
 	$('.page-template-templatesabout-php .about-title').fitted(0.56);
 	$('.categories-title').fitted(0.345);
+    $('.images-title').fitted(0.56);
 	$('.projects-title').fitted(0.56);
 	$('.sidebar .web').fitted(0.135) // Web
 	$('.sidebar .music').fitted(0.21) // Music

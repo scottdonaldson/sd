@@ -113,6 +113,7 @@
     </div>
                 
     <div class="tertiary">
+        <?php get_sidebar( 'images' ); ?>
         <?php get_sidebar( 'projects' ); ?>
     </div>        
 
