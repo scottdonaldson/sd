@@ -7,13 +7,21 @@ module.exports = function(grunt) {
             options: {
                 force: true
             },
-            all: ['Gruntfile.js', 'js/src/*.script.js']
+            all: ['Gruntfile.js', 'assets/js/src/*.script.js']
         },
 
         uglify: {
             build: {
                 files: {
-                    'js/min/script.js': ['js/src/script.js']
+                    'assets/js/min/script.js': [
+                        'assets/lib/angular/angular.js',
+                        'assets/lib/angular-route/angular-route.js',
+                        'assets/lib/angular-animate/angular-animate.js',
+                        'assets/js/src/controllers.js',
+                        'assets/js/src/services.js',
+                        'assets/js/src/directives.js',
+                        'assets/js/src/routes.js'
+                    ]
                 }
             }
         },
@@ -25,7 +33,7 @@ module.exports = function(grunt) {
                     style: 'compressed'
                 },
                 files: {
-                    'css/style.css': 'sass/style.scss'
+                    'assets/css/style.css': 'assets/sass/style.scss'
                 }
             }
         },
@@ -35,7 +43,7 @@ module.exports = function(grunt) {
                 browsers: ['> 1%']
             },
             no_dest: {
-                src: 'css/style.css'
+                src: 'assets/css/style.css'
             }
         },
 
@@ -44,14 +52,14 @@ module.exports = function(grunt) {
                 livereload: true
             },
             scripts: {
-                files: ['js/src/*.js'],
+                files: ['assets/js/src/*.js'],
                 tasks: ['uglify', 'jshint'],
                 options: {
                     spawn: false,
                 }
             },
             css: {
-                files: ['sass/*.scss', 'css/style.css'],
+                files: ['assets/sass/*.scss', 'assets/css/style.css'],
                 tasks: ['sass', 'autoprefixer'],
                 options: {
                     spawn: false

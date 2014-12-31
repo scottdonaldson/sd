@@ -10,7 +10,7 @@
 
 </div><!-- #page -->
 
-    <script src="<?= bloginfo('template_url'); ?>/js/min/script.js"></script>
+    <script src="<?= bloginfo('template_url'); ?>/assets/js/min/script.js"></script>
 
 	<?php
     // Google analytics: only track visits
