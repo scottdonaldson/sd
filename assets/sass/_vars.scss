@@ -1,13 +1,18 @@
+// Colors
+
+$primary: #A9E7E5;
+.primary { color: $primary; }
+.bg-primary { background-color: $primary; }
+
+$default: #5C5C5C;
+
+.white { color: #fff; }
+.bg-white { background-color: #fff; }
+
 // Mixins
 
 @mixin tight {
 	margin: 0;
 	padding: 0;
 }
-
-// Colors
-
-$grey: #565656;
-$med-grey: #999;
-$lt-grey: #D1D1D1;
-$turquoise: #D3E2E2;
+.tight { @include tight; }

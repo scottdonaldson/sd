@@ -1,11 +1,65 @@
 // Imports
+@import "vars";
 @import "normalize";
 @import "reset";
-@import "vars";
+@import "layout";
 @import "fonts";
 
 // General styles
 * {
 	box-sizing: border-box;
 	position: relative;
+}
+
+body {
+	color: $default;
+	font-family: 'Franklin Gothic', Helvetica, Arial, sans-serif;
+}
+
+.caps {
+	text-transform: uppercase;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.italic {
+	font-style: italic;
+}
+
+// Links
+
+// Header
+
+$header_height: 40vh;
+$header_title_font_size: 5vw;
+
+#header {
+	height: $header_height;
+
+	nav {
+		float: right;
+
+		li {
+			display: inline-block;
+			font-size: 1.2em;
+
+			a, a:visited {
+				color: #fff;
+				padding: 1em;
+				text-decoration: none;
+			}
+		}
+	}
+}
+
+#header-title {
+	font-size: $header_title_font_size;
+	margin-bottom: 0;
+
+	a, a:visited {
+		color: $default;
+		text-decoration: none;
+	}
 }

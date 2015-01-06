@@ -1,0 +1,144 @@
+// ----- Breakpoints for responsive styles
+$break_large: 1200px;
+$break_medium: 1000px;
+$break_small: 800px;
+$break_small_very: 600px;
+$break_tiny: 480px;
+
+$full_width: 1400px;
+
+.full-width {
+    margin: 0 auto;
+    max-width: $full_width;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+// Utilities
+.abs {
+    position: absolute;
+}
+
+.t0 { top: 0; }
+.b0 { bottom: 0; }
+.l0 { left: 0; }
+.r0 { right: 0; }
+.w100 { width: 100%; }
+
+// Cribbed from Chris Coyier/CSS-Tricks: http://css-tricks.com/spacing-the-bottom-of-modules/
+@mixin normalize {
+    & > *:first-child,
+    & > *:first-child > *:first-child,
+    & > *:first-child > *:first-child > *:first-child {
+        margin-top: 0 !important;
+    }
+    & > *:last-child,
+    & > *:last-child > *:last-child,
+    & > *:last-child > *:last-child > *:last-child {
+        margin-bottom: 0 !important;
+    }
+}
+.normalize { @include normalize; }
+
+.row {
+    @include clearfix;
+    @include normalize;
+    margin-bottom: 2em;
+
+    @media screen and (max-width: $break_medium) {
+        margin-bottom: 1.5em;
+    }
+    @media screen and (max-width: $break_small) {
+        margin-bottom: 1em;
+    }
+}
+
+.module {
+    padding: 1em 2.5em;
+    @include normalize;
+
+    @media screen and (max-width: $break_medium) {
+        padding: 0.75em 2em;
+    }
+    @media screen and (max-width: $break_small) {
+        padding: 0.5em 1em;
+    }
+
+    &.module-tight {
+        padding: 1.2em;
+
+        @media screen and (max-width: $break_medium) {
+            padding: 0.8em;
+        }
+        @media screen and (max-width: $break_small) {
+            padding: 0.6em;
+        }
+    }
+}
+
+.section {
+    @include clearfix;
+    padding-top: 2em;
+    padding-bottom: 2em;
+
+    @media screen and (max-width: $break_medium) {
+        padding-top: 1.5em;
+        padding-bottom: 1.5em;
+    }
+    @media screen and (max-width: $break_small) {
+        padding-top: 1em;
+        padding-bottom: 1em;
+    }
+}
+
+$column: 100% / 12;
+$gutter: 30px;
+
+.column,
+.columns {
+    float: left;
+    margin-right: $gutter;
+
+    &.first {
+        margin-left: 0;
+    }
+
+    &.last {
+        margin-right: 0;
+    }
+
+    // for floating media only
+    &.alignright,
+    &.alignleft {
+        img {
+            width: 100%;
+        }
+    }
+
+    &.spacer {
+        height: 1px;
+    }
+}
+
+.one.column {
+    width: calc(#{$column} - #{$gutter});
+}
+
+.columns {
+    &.two { width: calc(#{2* $column} - #{$gutter}); }
+    &.three { width: calc(#{3* $column} - #{$gutter}); }
+    &.four { width: calc(#{4* $column} - #{$gutter}); }
+    &.five { width: calc(#{5* $column} - #{$gutter}); }
+    &.six { width: calc(#{6* $column} - #{$gutter}); }
+    &.seven { width: calc(#{7* $column} - #{$gutter}); }
+    &.eight { width: calc(#{8* $column} - #{$gutter}); }
+    &.nine { width: calc(#{9* $column} - #{$gutter}); }
+    &.ten { width: calc(#{10* $column} - #{$gutter}); }
+    &.eleven { width: calc(#{11* $column} - #{$gutter}); }
+    &.twelve { width: calc(#{12* $column} - #{$gutter}); }
+
+    @media screen and (max-width: $break_small) {
+        margin: 0;
+        width: 100%;
+    }
+}

@@ -15,6 +15,12 @@ include_once('functions/advanced-custom-fields/acf.php');
 include_once('functions/acf-options-page/acf-options-page.php');
 include_once('functions/acf-repeater/acf-repeater.php');
 
+// Template routing
+add_action('init', 'add_templates_endpoint');
+function add_templates_endpoint() {
+	add_rewrite_rule('^templates/([^/]*)/?', 'wp-content/themes/sd/templates/$matches[1].php', 'top');
+}
+
 // Register top navigation menu
 add_action( 'init', 'register_my_menu' );
 function register_my_menu() {

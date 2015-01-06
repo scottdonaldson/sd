@@ -14,13 +14,7 @@ module.exports = function(grunt) {
             build: {
                 files: {
                     'assets/js/min/script.js': [
-                        'assets/lib/angular/angular.js',
-                        'assets/lib/angular-route/angular-route.js',
-                        'assets/lib/angular-animate/angular-animate.js',
-                        'assets/js/src/controllers.js',
-                        'assets/js/src/services.js',
-                        'assets/js/src/directives.js',
-                        'assets/js/src/routes.js'
+                        'assets/js/src/script.js'
                     ]
                 }
             }
